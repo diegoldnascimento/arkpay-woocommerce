@@ -1,0 +1,1547 @@
+# ArknPay translation strings
+# Copyright (C) 2017 Milan Semen
+# This file is distributed under the same license as the ArknPay package
+msgid ""
+msgstr ""
+"Project-Id-Version: VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-13 08:34+0000\n"
+"PO-Revision-Date: 2018-06-08 21:19+0200\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: sl_SI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.8\n"
+
+#: woocommerce-widget-arknpay.php:48
+msgid "ARK Conversion"
+msgstr "Pretvorba v ARK"
+
+#: woocommerce-widget-arknpay.php:67
+msgid "Exchange Rate"
+msgstr "Menjalno razmerje"
+
+#: woocommerce-widget-arknpay.php:67 arkcommercegui.php:437 arkcommercegui.php:445
+#: arkcommercegui.php:493 arkcommercenotify.php:49 arkcommercenotify.php:143
+#: arkcommercenotify.php:239
+msgid "per ARK"
+msgstr "na ARK"
+
+#: woocommerce-widget-arknpay.php:67
+msgid "Convert"
+msgstr "Pretvori"
+
+#: woocommerce-widget-arknpay.php:81
+msgid "Currency Converter"
+msgstr "Valutna pretvorba"
+
+#: woocommerce-widget-arknpay.php:84 includes/widgets/class-wc-arknpay-faq-widget.php:123
+msgid "Title:"
+msgstr "Naziv:"
+
+#: arkcommercegui.php:26 arkcommercegui.php:864 arkcommercegui.php:968
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: arkcommercegui.php:26 arkcommercegui.php:99 arkcommercegui.php:104
+#: arkcommercegui.php:109 arkcommercegui.php:337 arkcommercegui.php:969
+#: arkcommercegui.php:985
+msgid "Preferences"
+msgstr "Preference"
+
+#: arkcommercegui.php:45 arkcommercegui.php:124 arkcommercegui.php:345
+#: arkcommercegui.php:971 arkcommercegui.php:989
+msgid "Information"
+msgstr "Informacije"
+
+#: arkcommercegui.php:46
+msgid "Donate ARK"
+msgstr "ARK donacija"
+
+#: arkcommercegui.php:94
+msgid ""
+"requires your attention for a functioning setup. Please enter a valid ARK "
+"Wallet Address or disable ArknPay."
+msgstr ""
+"terja vašo pozornost za pravilno nastavljeno delovanje. Prosimo vnesite "
+"veljaven naslov ARK denarnice ali onemogočite ArknPay."
+
+#: arkcommercegui.php:99
+msgid ""
+"Currently selected store currency is not supported in automatic exchange "
+"rate mode. Please switch to the fixed exchange rate in"
+msgstr ""
+"Trenutno izbrana valuta trgovine ni podprta v načinu samodejne "
+"sinhronizacije menjalnega tečaja. Prosimo spremenite način na fiksen "
+"menjalni tečaj na strani"
+
+#: arkcommercegui.php:104
+msgid ""
+"Currently selected store currency does not have its fixed exchange rate "
+"defined, please do so in"
+msgstr ""
+"Trenutno izbrana valuta trgovine nima opredeljenega fiksnega menjalnega "
+"razmerja, prosimo storite to na strani"
+
+#: arkcommercegui.php:109
+msgid ""
+"Currently selected store currency exchange rate multiplier has not been "
+"defined, please do so in"
+msgstr ""
+"Množilni faktor menjalnega razmerja trenutno izbrane valute trgovine ni "
+"nastavljen, prosimo storite to na strani"
+
+#: arkcommercegui.php:114
+msgid ""
+"payment gateway plugin is currently not enabled. Please configure and enable "
+"it or deactivate ArknPay."
+msgstr ""
+"vtičnik je trenutno onemogočen. Prosimo naj ga nastavite in omogočite, ali "
+"pa deaktivirajte ArknPay."
+
+#: arkcommercegui.php:119
+msgid ""
+"requires your attention for a functioning DARK Mode setup. Please enter a "
+"valid DARK Wallet Address or disable DARK Mode."
+msgstr ""
+"terja vašo pozornost za pravilno delovanje, prosimo vnesite veljaven naslov "
+"DARK denarnice ali onemogočite DARK režim."
+
+#: arkcommercegui.php:124
+msgid ""
+"It is highly recommended turning on \"Hard Cron\" scheduled task operation. "
+"Guides are found in"
+msgstr ""
+"Priporočljiva je izraba \"Hard Cron\" izvajanja rednih opravil. Vodiča sta "
+"na voljo na strani"
+
+#: arkcommercegui.php:129
+msgid ""
+"ARK network unresponsive or unreachable. Payment gateway service currently "
+"unavailable."
+msgstr "ARK omrežje neodzivno. ARK način plačila trenutno ni na voljo."
+
+#: arkcommercegui.php:134
+msgid ""
+"ArknPay requires deactivation and reactivation to upgrade properly and "
+"resume operation."
+msgstr ""
+"ArknPay terja deaktivacino in ponovno aktivacijo za izvedbo pravilne "
+"nadgradnje ter normalnega delovanja."
+
+#: arkcommercegui.php:167 arkcommercegui.php:287 arkcommercegui.php:739
+msgid "ArknPay operational"
+msgstr "ArknPay obratuje"
+
+#: arkcommercegui.php:167 arkcommercegui.php:739
+msgid "ARK block height"
+msgstr "ARK blokovna višina"
+
+#: arkcommercegui.php:168 arkcommercegui.php:740
+msgid "ARK network unresponsive or unreachable"
+msgstr "ARK omrežje neodzivno oziroma nedosegljivo"
+
+#: arkcommercegui.php:171
+msgid "Market exchange rate"
+msgstr "Tržno menjalno razmerje"
+
+#: arkcommercegui.php:171
+msgid "Store exchange rate"
+msgstr "Menjalno razmerje trgovine"
+
+#: arkcommercegui.php:177 arkcommercegui.php:247
+msgid "Store Wallet"
+msgstr "Denarnica trgovine"
+
+#: arkcommercegui.php:177
+msgid "Balance"
+msgstr "stanje"
+
+#: arkcommercegui.php:180
+msgid "Latest 10 Transactions"
+msgstr "Poslednjih 10 ARK transakcij"
+
+#: arkcommercegui.php:180 arkcommercegui.php:749
+msgid "Sender"
+msgstr "Pošiljatelj"
+
+#: arkcommercegui.php:180 arkcommercegui.php:290 arkcommercegui.php:749
+msgid "Amount"
+msgstr "Znesek"
+
+#: arkcommercegui.php:182
+msgid "Address"
+msgstr "Naslov"
+
+#: arkcommercegui.php:199
+msgid "Latest Orders via ArknPay"
+msgstr "Poslednja ArknPay naročila"
+
+#: arkcommercegui.php:199 arkcommercegui.php:771
+msgid "Order ID"
+msgstr "Številka naročila"
+
+#: arkcommercegui.php:199 arkcommercegui.php:771
+msgid "Order Total (Ѧ)"
+msgstr "Končni znesek (Ѧ)"
+
+#: arkcommercegui.php:199 arkcommercegui.php:771
+msgid "Order Status"
+msgstr "Stanje naročila"
+
+#: arkcommercegui.php:239 arkcommercegui.php:805
+msgid "ArknPay DARK Mode enabled"
+msgstr "ArknPay DARK režim delovanja omogočen"
+
+#: arkcommercegui.php:247 arkcommercegui.php:749 arkcommercegui.php:771
+msgid "Transaction ID"
+msgstr "Identifikator transakcije"
+
+#: arkcommercegui.php:247
+msgid "Open in Explorer"
+msgstr "Prikaz v Raziskovalcu"
+
+#: arkcommercegui.php:258
+msgid "ArknPay Manual TX Check"
+msgstr "ArknPay ročno preverjanje transakcij"
+
+#: arkcommercegui.php:287
+msgid "Latest ARK transactions"
+msgstr "Poslednje ARK transakcije"
+
+#: arkcommercegui.php:287
+msgid "ARK wallet"
+msgstr "ARK denarnica"
+
+#: arkcommercegui.php:298 arkcommercegui.php:759
+msgid "No incoming transactions found."
+msgstr "Ni najdenih transakcij prilivov."
+
+#: arkcommercegui.php:328
+msgid "ArknPay Navigator"
+msgstr "ArknPay Navigator"
+
+#: arkcommercegui.php:329 arkcommercegui.php:970 arkcommercegui.php:981
+msgid "Navigator"
+msgstr "Navigator"
+
+#: arkcommercegui.php:336
+msgid "ArknPay Preferences"
+msgstr "ArknPay Preference"
+
+#: arkcommercegui.php:344
+msgid "ArknPay Information"
+msgstr "ArknPay informacijah"
+
+#: arkcommercegui.php:385
+msgid "110 blocks (unpaid order expires in cca 15 min)"
+msgstr "110 blokov (neplačana naročila potečejo v cca 15 min)"
+
+#: arkcommercegui.php:386
+msgid "225 blocks (unpaid order expires in cca 30 min)"
+msgstr "225 blokov (neplačana naročila potečejo v cca 30 min)"
+
+#: arkcommercegui.php:387
+msgid "450 blocks (unpaid order expires in cca 60 min)"
+msgstr "450 blokov (neplačana naročila potečejo v cca 60 min)"
+
+#: arkcommercegui.php:388
+msgid "900 blocks (unpaid order expires in cca 2 hours)"
+msgstr "900 blokov (neplačana naročila potečejo v cca 2 h)"
+
+#: arkcommercegui.php:389
+msgid "1800 blocks (unpaid order expires in cca 4 hours)"
+msgstr "1800 blokov (neplačana naročila potečejo v cca 4 h)"
+
+#: arkcommercegui.php:390
+msgid "3600 blocks (unpaid order expires in cca 8 hours)"
+msgstr "3600 blokov (neplačana naročila potečejo v cca 8 h)"
+
+#: arkcommercegui.php:391
+msgid "5400 blocks (unpaid order expires in cca 12 hours)"
+msgstr "5400 blokov (neplačana naročila potečejo v cca 12 h)"
+
+#: arkcommercegui.php:392
+msgid "10800 blocks (unpaid order expires in cca 24 hours)"
+msgstr "10800 blokov (neplačana naročila potečejo v cca 24 h)"
+
+#: arkcommercegui.php:393
+msgid "75600 blocks (unpaid order expires in cca 7 days)"
+msgstr "75600 blokov (neplačana naročila potečejo v cca 7 dneh)"
+
+#: arkcommercegui.php:394
+msgid "151200 blocks (unpaid order expires in cca 2 weeks)"
+msgstr "151200 blokov (neplačana naročila potečejo v cca 2 tednih)"
+
+#: arkcommercegui.php:395
+msgid "324000 blocks (unpaid order expires in cca 1 month)"
+msgstr "324000 blokov (neplačana naročila potečejo v cca 1 mesecu)"
+
+#: arkcommercegui.php:396 includes/class-wc-arknpay-api.php:116
+msgid "None (order never expires)"
+msgstr "Brez (naročila nikoli ne potečejo)"
+
+#: arkcommercegui.php:437 arkcommercegui.php:445
+msgid "Current store exchange rate"
+msgstr "Trenutno menjalno razmerje trgovine"
+
+#: arkcommercegui.php:441
+msgid "Unable to determine the exchange rate"
+msgstr "Ni moč ugotoviti menjalnega razmerja"
+
+#: arkcommercegui.php:445
+msgid "Current market exchange rate"
+msgstr "Trenutno tržno menjalno razmerje"
+
+#: arkcommercegui.php:450
+msgid "ARK is the currently chosen default store currency"
+msgstr "ARK je trenutno izbrana privzeta valuta trgovine"
+
+#: arkcommercegui.php:459 arkcommercegui.php:743
+msgid "ARK wallet address"
+msgstr "Naslov ARK denarnice"
+
+#: arkcommercegui.php:465
+msgid "opens in the official ARK blockchain explorer application"
+msgstr "odpre v aplikaciji raziskovalca ARK blokovne verige"
+
+#: arkcommercegui.php:475
+msgid "Exchange Rate Settings"
+msgstr "Nastavitve menjalnega razmerja"
+
+#: arkcommercegui.php:481
+msgid "Automatic exchange rate with multiplication"
+msgstr "Samodejno menjalno razmerje z množilnim faktorjem"
+
+#: arkcommercegui.php:483
+msgid "e.g. 1.01 multiplier is 1 percent over market rate"
+msgstr "npr. 1.01 faktor pomeni 1 procent nad tržnim razmerjem"
+
+#: arkcommercegui.php:488
+msgid "Automatic exchange rate"
+msgstr "Samodejno menjalno razmerje"
+
+#: arkcommercegui.php:491
+msgid "Fixed exchange rate"
+msgstr "Fiksno menjalno razmerje"
+
+#: arkcommercegui.php:497
+msgid ""
+"Ignored if ARK is the chosen default store currency. Automatic exchange rate "
+"for supported currencies sourced through periodic updates from coinmarketcap."
+"com. Unsupported currencies only allow for a fixed exchange rate"
+msgstr ""
+"Se ne upošteva v kolikor je ARK izbrana privzeta valuta trgovine. Samodejno "
+"ugotavljanje menjalnega razmerja za podprte valute se izvaja s pomočjo "
+"rednih poizvedb do coinmarketcap.com. Nepodprte valute dovoljujejo zgolj "
+"uporabo fiksnega menjalnega razmerja"
+
+#: arkcommercegui.php:505 woocommerce-woo-arknpay.php:216 woocommerce-woo-arknpay.php:218
+#: woocommerce-woo-arknpay.php:247 woocommerce-woo-arknpay.php:249 woocommerce-woo-arknpay.php:275
+msgid "Order Expiry"
+msgstr "Potek naročila"
+
+#: arkcommercegui.php:514
+msgid ""
+"Timeframe within which the customer must carry out the ARK transaction or "
+"the order gets automatically cancelled"
+msgstr ""
+"Časovni okvir, znotraj katerega mora stranka izvesti ARK transakcijo, sicer "
+"se naročilo samodejno prekliče"
+
+#: arkcommercegui.php:522
+msgid "Customer Information"
+msgstr "Navodila stranki"
+
+#: arkcommercegui.php:527
+msgid "Payment gateway title the customer sees during checkout"
+msgstr "Naziv načina plačila, viden stranki ob zaključku nakupa"
+
+#: arkcommercegui.php:530
+msgid "Payment method description the customer sees during checkout"
+msgstr "Opis načina plačila, viden stranki ob zaključku nakupa"
+
+#: arkcommercegui.php:534
+msgid "Instructions that will be added to the thank you page and emails"
+msgstr "Navodilo, ki bo dodano k zahvalni strani in e-poštnim sporočilom"
+
+#: arkcommercegui.php:539
+msgid ""
+"Display dual prices side by side in chosen default store currency and ARK"
+msgstr "Hkraten prikaz cen v izbrani privzeti valuti trgovine in ARK"
+
+#: arkcommercegui.php:542
+msgid "Display ARK information on cart page"
+msgstr "Prikaz ARK informacij v nakupovalnem vozičku"
+
+#: arkcommercegui.php:544
+msgid ""
+"ARK information is displayed in a notice consisting of either just order "
+"expiry timeout in case of ARK being the store default currency, or cart "
+"total in ARK and order expiry timeout in case of other currency being the "
+"store default. This setting does not apply to cart checkout page"
+msgstr ""
+"ARK informacije so prikazane kot obvestilo, ki vsebuje ali zgolj čas poteka "
+"naročila v primeru, da je ARK privzeta valuta trgovine, ali pa skupen znesek "
+"ter čas poteka naročila v primeru drugih izbranih valut kot privzetih. "
+"Nastavitev nima vpliva na prikaz ob zaključku nakupa"
+
+#: arkcommercegui.php:551
+msgid "Email Notifications"
+msgstr "E-poštna obvestila"
+
+#: arkcommercegui.php:561
+msgid "Whenever an order is placed via ArknPay payment gateway"
+msgstr "Kadar je podano naročilo preko ArknPay načina plačila"
+
+#: arkcommercegui.php:564
+msgid "Whenever an order is filled via ArknPay payment gateway"
+msgstr "Kadar je plačano naročilo, podano preko ArknPay načina plačila"
+
+#: arkcommercegui.php:567
+msgid "Whenever an order made via ArknPay payment gateway has expired"
+msgstr "Kadar je poteklo naročilo, podano preko ArknPay načina plačila"
+
+#: arkcommercegui.php:569
+msgid ""
+"Notifications contain additional order information and get sent to the "
+"chosen administrator or shop manager user email address on selected order "
+"events"
+msgstr ""
+"Tovrstna obvestila vsebujejo dodatne informacije o naročilih, ki se ob "
+"vključenih dogodkih dostavljajo na izbran e-poštni naslov administratorja "
+"oziroma upravljavca trgovine"
+
+#: arkcommercegui.php:577
+msgid "Save Changes"
+msgstr "Shrani spremembe"
+
+#: arkcommercegui.php:586
+msgid "Your preferences have been saved."
+msgstr "Vaše preference so bile shranjene."
+
+#: arkcommercegui.php:587
+msgid "Incorrect entry, please review the failed setting change and retry."
+msgstr ""
+"Nepravilen vnos, prosimo preverite neuspelo spremembo nastavitev in "
+"poskusite znova."
+
+#: arkcommercegui.php:743
+msgid "balance"
+msgstr "stanje"
+
+#: arkcommercegui.php:743
+msgid "opens in ARK blockchain explorer application"
+msgstr "odpre v aplikaciji raziskovalca ARK blokovne verige"
+
+#: arkcommercegui.php:749
+msgid "Latest 10 ARK Transactions"
+msgstr "Poslednjih 10 ARK transakcij"
+
+#: arkcommercegui.php:771
+msgid "Latest 10 ArknPay Orders"
+msgstr "Poslednjih 10 ArknPay naročil"
+
+#: arkcommercegui.php:771
+msgid "Order Block"
+msgstr "Blok naročila"
+
+#: arkcommercegui.php:771
+msgid "Payment Block"
+msgstr "Blok plačila"
+
+#: arkcommercegui.php:771
+msgid "Expiry Block"
+msgstr "Blok poteka"
+
+#: arkcommercegui.php:776 arkcommercegui.php:778
+msgid "N/A"
+msgstr "Ni podatka"
+
+#: arkcommercegui.php:806
+msgid "ArknPay payment gateway enabled"
+msgstr "ArknPay način plačila omogočen"
+
+#: arkcommercegui.php:808
+msgid "ArknPay payment gateway disabled"
+msgstr "ArknPay način plačila onemogočen"
+
+#: arkcommercegui.php:811
+msgid "ARK Wallet Guides"
+msgstr "Vodič po ARK denarnicah"
+
+#: arkcommercegui.php:811
+msgid "ARK Blockchain Information"
+msgstr "Informacije o ARK blokovni verigi"
+
+#: arkcommercegui.php:811
+msgid "ARK News Sources"
+msgstr "Viri ARK novic"
+
+#: arkcommercegui.php:811
+msgid "WordPress Cron Information"
+msgstr "Informacije o WordPress Cron"
+
+#: arkcommercegui.php:811
+msgid "Free ARK"
+msgstr "Brezplačen ARK"
+
+#: arkcommercegui.php:811
+msgid "Free DARK"
+msgstr "Brezplačen DARK"
+
+#: arkcommercegui.php:811
+msgid "ARK Wallet Setup"
+msgstr "Namestitev ARK denarnice"
+
+#: arkcommercegui.php:811
+msgid "Ledger Nano S Hardware Wallet Guide"
+msgstr "Vodič po Ledger Nano S strojni denarnici"
+
+#: arkcommercegui.php:811
+msgid "ARK Voting"
+msgstr "ARK glasovanje"
+
+#: arkcommercegui.php:811
+msgid "ARK Blockchain Explorer"
+msgstr "Raziskovalec ARK blokovne verige"
+
+#: arkcommercegui.php:811
+msgid "ARK Official Blog"
+msgstr "Uradni ARK blog"
+
+#: arkcommercegui.php:811
+msgid "ARK Community Fund"
+msgstr "ARK skupnostni sklad"
+
+#: arkcommercegui.php:811
+msgid "ARK Official Slack"
+msgstr "Uradni ARK Slack"
+
+#: arkcommercegui.php:811
+msgid "Hooking WP-Cron Into the System Task Scheduler"
+msgstr "Povezovanje WP-Cron s sistemskim upraviteljem opravil"
+
+#: arkcommercegui.php:811
+msgid "Biz_Classic ARK Community Faucet"
+msgstr "Biz_classic skupnostna ARK pipa"
+
+#: arkcommercegui.php:811
+msgid "DARK Paper Wallet Generator (automatically dispenses free DARK tokens)"
+msgstr ""
+"Generator DARK papirnatih denarnic (samodejno deponira brezplačne DARK "
+"žetone)"
+
+#: arkcommercegui.php:821
+msgid ""
+"Thank you for choosing ArknPay. This project was supported by Ark "
+"Community Fund"
+msgstr ""
+"Hvala, ker ste izbrali ArknPay. Projekt je bil podprt s strani Ark "
+"Community Fund"
+
+#: arkcommercegui.php:826
+msgid "About ARK"
+msgstr "O ARK"
+
+#: arkcommercegui.php:830
+msgid ""
+"In a sea of carbon copies among crypto currencies, ARK stands out for "
+"providing the users, developers, and startups with innovative blockchain "
+"technologies aiming to create an entire ecosystem of linked chains and a "
+"virtual spiderweb of endless use-cases that make it highly flexible, "
+"adaptable, and scalable. Having launched in late March 2017, it has gained "
+"many supporters for its DPoS (Delegated Proof of Stake) blockchain securing "
+"mechanism as a green alternative to traditional PoW (Proof of Work) cryto "
+"currencies, one that enables much faster and less expensive execution of "
+"transactions, and one that lends itself well to processing automation. A big "
+"win for ARK is its inherent system of governance through user voting with "
+"their wallet balances for delegates where the best of them get rewarded with "
+"loyalty, longevity, and profit sharing whereas bad actors or low-performance "
+"delegates eventually get kicked out of the top 51 forging delegates. These "
+"are the only ones that actually \"mine\" ARK blockchain, receive transaction "
+"fees, and reap the rewards (2 ARK per block) stemming from it. As a "
+"currency, ARK features a modest inflation rate which makes it suitable as a "
+"long-term hold."
+msgstr ""
+"V kopici klonov med kriptovalutami ARK izstopa kot izjema - takšna, ki "
+"uporabnikom, razvijalcem in start-upom omogoča izrabo inovativnih tehnologij "
+"blokovnih verig . Cilj projekta je ustvaritev celotnega ekosistema "
+"medsebojno povezanih verig in virtualno pajkovo mrežo primerov uporabe, ki "
+"izrabljajo ARK fleksibilnost, prilagodljivost in skalabilnost. ARK je bil "
+"splavljen v marcu 2017 in doslej je uspel pridobiti mnogo podpornikov "
+"zavoljo lastnega DPoS (Delegated Proof of Stake, delegirana potrditev "
+"deleža) mehanizma za zagotavljanje verodostojnosti omrežja. To je namreč "
+"zelena alternativa uveljavljenemu PoW (Proof of Work, potrditev dela) "
+"pristopu, saj omogoča precej hitrejšo in učinkovitejšo izvedbo transakcij "
+"ter se ponuja kot platforma, nadvse primerna za procesno avtomatiacijo. "
+"Velik plus pri ARK-u je tudi vgrajen sistem upravljanja sistema s pomočjo "
+"glasovanja delegatov uporabnikov, ki to počnejo z vsebino svojih denarnic, "
+"pri čemer so najboljši nagrajeni z zvestobo, trajnostjo in delitvijo "
+"dobička, medtem ko se manj primerni naposled znajdejo izven prvih 51 "
+"delegatov kovačev. Slednji so namreč tisti, ki dejansko \"rudarijo\" ARK "
+"blokovno verigo, prejemajo transakcijske provizije in uživajo nagrado (2 ARK "
+"na blok), ki iz tega izhaja. Kot valuta se ARK odlikuje z nizko stopnjo "
+"inflacije, torej je primeren kot dolgoročna naložba."
+
+#: arkcommercegui.php:833
+msgid ""
+"The roadmap for future development is very ambitious for the steadily "
+"growing and capable team behind it intends to incorporate various features "
+"like ArkVM (Virtual Machine) such as the one found in Ethereum, as well as "
+"coming integrations of IPFS (Interplanetary File System) and IPDB "
+"(Interplanetary Database) transactions, push-button deployable blockchains, "
+"a distributed token exchange, and so on. From this standpoint, ARK is poised "
+"to become one of the top contenders for crypto currency throne in the "
+"future. The user base and the development ecosystem that has sprung up "
+"around ARK is truly fruitful and dedicated, which makes the success of the "
+"entire project that much more likely."
+msgstr ""
+"Razvojni načrt rastoče in sposobne ARK ekipe glede prihodnjega razvoja je "
+"zelo ambiciozen, saj kani ponuditi raznovrstne storitve, kot so Ethereumu "
+"podoben ArkVM (Virtual Machine, navidezni stroj), pa tudi integracije IPFS "
+"(Interplanetary File System) in IPDB (Interplanetary Database) v "
+"transakcije, postavitev blokovnih verig na gumb, decentralizirano borzo "
+"žetonov itd. Iz tega gledišča ARK obeta veliko in utegne postati eden izmed "
+"najkonkurenčnejših kandidatov, ki v prihodnje ciljajo na zasedbo prestola "
+"blokovnih verig. Uporabniška baza in razvojni ekosistem, ki sta zrasla okoli "
+"ARK, sta resnično plodna in predana nalogi, kar prinaša veliko verjetnost "
+"končnega uspeha celotnega projekta."
+
+#: arkcommercegui.php:837
+msgid "About ArknPay"
+msgstr "O ArknPay"
+
+#: arkcommercegui.php:841
+msgid ""
+"ArknPay is a payment gateway that provides crypto currency payment "
+"services for WooCommerce store operators on WordPress platform by utilizing "
+"the ARK blockchain. Fully based on open source code and architecture, "
+"ArknPay aims to provide the necessary e-commerce infrastructure with the "
+"goal of wider market acceptance for ARK by both customers and merchants. "
+"Online merchants struggle with risk-free and timely digital product delivery "
+"via established fiat currency payment intermediaries. This makes for a "
+"particularly suitable use case for crypto currency payments that happen in "
+"trustless, straightforward, and automated fashion."
+msgstr ""
+"ArknPay je način plačila, ki je na voljo WooCommerce spletnim trgovinam "
+"na WordPress platformi ter temelji na izrabi ARK blokovne verige. V celoti "
+"sloni na odprti kodi in arhitekturi, pri čemer nudi vso potrebno "
+"infrastrukturo, ki cilja na širšo tržno uveljavitev kripto valute ARK tako "
+"pri strankah kakor tudi pri trgovcih. Slednji se namreč spopadajo s "
+"problemom netvegane in pravočasne dostave digitalnih produktov ob izrabi "
+"uveljavljenih posrednikov plačil v tradicionalnih valutah. To dejstvo je "
+"primarni gonilnik za izrabo primernih rešitev, temelječih na kripto valutnih "
+"plačilih, ki ne terjajo zaupanja, a so obenem enostavna in avtomatizirana."
+
+#: arkcommercegui.php:844
+msgid ""
+"ArknPay leverages the versatility, resilience and quickness of the ARK "
+"blockchain that features a special field called SmartBridge which enables "
+"user input as part of the transaction, whereas 8 second block times "
+"facilitate prompt transaction confirmations. All orders placed through "
+"ArknPay are placed on-hold until repetitive ARK blockchain queries for "
+"open orders reveal a transaction for an appropriate amount of ARK and with a "
+"correct order reference making a deposit into the monitored ARK wallet "
+"address belonging to the store, all without requiring or storing wallet "
+"passphrases."
+msgstr ""
+"Rešitev ArknPay izrablja vsestranskost, trdoživost in hitrost ARK "
+"blokovne verige, ki premore posebno polje po imenu SmartBridge, ki omogoča "
+"vključitev uporabniških vnosov kot temeljnih delov transakcije, medtem ko 8-"
+"sekundni blokovni časi zagotavljajo hitro potrjevanje transakcij. Vsa "
+"naročila, podana s pomočjo ArknPay načina plačila so na čakanju vse "
+"dokler se poizvedbe v ARK blokovni verigi ne izidejo z odkritjem ustrezne "
+"transakcije, ki vsebuje primeren znesek in sklic ter je izvedena v "
+"nadzorovano ARK denarnico, ki pripada trgovini, pri čemer ne zahteva niti ne "
+"hrani kakršnihkoli gesel denarnic."
+
+#: arkcommercegui.php:848
+msgid "Quick Guides"
+msgstr "Hitri vodiči"
+
+#: arkcommercegui.php:853
+msgid "Set ARK as Default Currency"
+msgstr "Nastavitev ARK kot privzete valute"
+
+#: arkcommercegui.php:858 arkcommercegui.php:892 arkcommercegui.php:914
+msgid "Step 1"
+msgstr "1. korak"
+
+#: arkcommercegui.php:860
+msgid "Open WordPress administration interface at"
+msgstr "Odprite WordPress administrativni vmesnik na naslovu"
+
+#: arkcommercegui.php:864
+msgid "and select"
+msgstr "in izberite"
+
+#: arkcommercegui.php:867 arkcommercegui.php:901
+msgid "Step 2"
+msgstr "2. korak"
+
+#: arkcommercegui.php:869
+msgid ""
+"Scroll down and select \"Currency\" dropdown entry \"ARK (Ѧ)\", and enter "
+"\"8\" into \"Number of decimals\" field."
+msgstr ""
+"V Splošnih nastavitvah WooCommerce spodaj pod \"Možnosti valute\", \"Valuta"
+"\" izberite vnos \"ARK (Ѧ)\", ter vnesite \"8\" v polje \"Število decimalk\"."
+
+#: arkcommercegui.php:872
+msgid "Step 3"
+msgstr "3. korak"
+
+#: arkcommercegui.php:874
+msgid ""
+"Click on the button \"Save changes\" to apply the changes effective "
+"immediately."
+msgstr ""
+"Kliknite na gumb \"Shrani spremembe\" za takojšnjo uveljavitev sprememb."
+
+#: arkcommercegui.php:878
+msgid "Hard Cron Quick Guide"
+msgstr "Hitri vodič po Hard Cron"
+
+#: arkcommercegui.php:884
+msgid ""
+"Both automatic exchange rate synchronization and transaction verification "
+"queries depend on \"WP-Cron\" task being triggered as regularly as possible, "
+"therefore in case this store is low-traffic (i.e. does not get hits every "
+"minute) it is highly recommended to implement \"Hard Cron\" solution to "
+"ensure proper scheduled task execution. A general guide on how to do so in "
+"two steps is found below, however your specific permissions and allowed "
+"methods may depend on your hosting provider so refer to them for assistance "
+"in case there are difficulties."
+msgstr ""
+"Tako samodejna sinhronizacija menjalnega razmerja kot poizvedbe, namenjene "
+"preverjanju transakcij, se zanašata na karseda redno proženje  \"WP-Cron\" "
+"opravila, zato je v primeru, da ima ta spletna trgovina nizek spletni "
+"promet, priporočena vpeljava \"Hard Cron\" rešitve, ki zagotavlja pravilno "
+"izvajanje rednih opravil. Splošen vodič kako to uveljaviti v dveh korakih se "
+"nahaja spodaj, ampak izvedba je odvisna od konkretnih pooblastil in "
+"dovoljenih metod s strani vašega ponudnika gostovanja, zato se obrnite nanj "
+"za pomoč v primeru težav."
+
+#: arkcommercegui.php:888
+msgid "Option 1: Using cPanel"
+msgstr "1. varianta: z uporabo cPanel"
+
+#: arkcommercegui.php:894
+msgid ""
+"FTP or SSH into your web host, edit \"wp-config.php\" file which usually "
+"resides under \"htdocs\" folder and place the following code under the first "
+"\"define\" line"
+msgstr ""
+"Vpišite se v gostitelja spletne strani preko FTP ali SSH, odprite \"wp-"
+"config.php\" datoteko, ki se po navadi nahaja v \"htdocs\" mapi, ter "
+"vstavite spodnjo vrstico kode pod prvo \"define\" vrstico"
+
+#: arkcommercegui.php:903
+msgid ""
+"Log into cPanel > Advanced > Cron Jobs > Add New > Set the interval to 1 "
+"minute by using the string below; in case your hosting provider offers only "
+"longer intervals, pick the shortest one but be aware that such a setup is "
+"suboptimal"
+msgstr ""
+"Vpišite se v cPanel > Advanced > Cron Jobs > Add New in nastavite interval "
+"na 1 minuto tako, da vnesete spodnji niz; v kolikor vaš ponudnik gostovanja "
+"nudi le daljše intervale, izberite najkrajšega, a zavedajte se, da takšna "
+"ureditev ni optimalna"
+
+#: arkcommercegui.php:910
+msgid "Option 2: Using Command Line"
+msgstr "2. varianta: z uporabo ukazne vrstice"
+
+#: arkcommercegui.php:916
+msgid ""
+"SSH or connect using Remote Desktop into your web host, edit \"wp-config.php"
+"\" file which usually resides under \"htdocs\" folder and place the "
+"following code under the first \"define\" line"
+msgstr ""
+"Vpišite se v gostitelja spletne strani preko SSH ali Remote Desktop "
+"povezave, odprite \"wp-config.php\" datoteko, ki se po navadi nahaja v "
+"\"htdocs\" mapi, ter vstavite spodnjo vrstico kode pod prvo \"define\" "
+"vrstico"
+
+#: arkcommercegui.php:923
+msgid "Step 2A (Linux)"
+msgstr "2A korak (Linux)"
+
+#: arkcommercegui.php:925
+msgid "Edit the crontab with the following command"
+msgstr "Uredite crontab s pomočjo naslednjega ukaza"
+
+#: arkcommercegui.php:932
+msgid "Step 3A"
+msgstr "3A korak"
+
+#: arkcommercegui.php:934
+msgid "Scroll all the way down and insert the following line"
+msgstr "Povsem spodaj vnesite naslednjo vrstico"
+
+#: arkcommercegui.php:941
+msgid "Step 2B (Windows)"
+msgstr "2B korak (Windows)"
+
+#: arkcommercegui.php:943
+msgid ""
+"Open the Windows Command Line (CMD.EXE) as Administrator and enter the "
+"following command"
+msgstr ""
+"Odprite Windows ukazno vrstico (CMD.EXE) z Administrativnimi pooblastili in "
+"vnesite naslednji ukaz"
+
+#: arkcommercegui.php:951
+msgid "Useful External Links"
+msgstr "Koristne zunanje povezave"
+
+#: arkcommercegui.php:967 arkcommercegui.php:973
+msgid "Website"
+msgstr "spletna stran"
+
+#: arkcommercegui.php:973
+msgid "Online Wallet"
+msgstr "spletna denarnica"
+
+#: arkcommercegui.php:973
+msgid "Desktop Wallet"
+msgstr "namizna denarnica"
+
+#: arkcommercegui.php:973
+msgid "Mobile Wallet"
+msgstr "mobilna denarnica"
+
+#: arkcommercegui.php:1000
+#, php-format
+msgid ""
+"If you enjoy using <b>ArknPay</b> please leave us a %s rating on %s."
+msgstr ""
+"V kolikor vam ustreza <b>ArknPay</b> prosimo pustite %s oceno na %s."
+
+#: arkcommercenotify.php:49 arkcommercenotify.php:143 arkcommercenotify.php:239
+msgid "Order total converted to ARK from"
+msgstr "Končni znesek pretvorjen v ARK iz"
+
+#: arkcommercenotify.php:49 arkcommercenotify.php:143 arkcommercenotify.php:239
+msgid "at the following exchange rate"
+msgstr "po naslednjem menjalnem razmerju"
+
+#: arkcommercenotify.php:52 arkcommercenotify.php:146 arkcommercenotify.php:242
+msgid "Order total originally priced in ARK at"
+msgstr "Končni znesek, izvirno naveden v ARK, je"
+
+#: arkcommercenotify.php:55 arkcommercenotify.php:85 arkcommercenotify.php:155
+#: arkcommercenotify.php:185 arkcommercenotify.php:245
+#: arkcommercenotify.php:275
+msgid "ArknPay Order"
+msgstr "ArknPay naročilo"
+
+#: arkcommercenotify.php:55 arkcommercenotify.php:85
+msgid "Filled"
+msgstr "plačano"
+
+#: arkcommercenotify.php:65
+msgid "ArknPay Order Filled"
+msgstr "ArknPay naročilo plačano"
+
+#: arkcommercenotify.php:88 arkcommercenotify.php:188 arkcommercenotify.php:278
+msgid "The order number"
+msgstr "Številka naročila"
+
+#: arkcommercenotify.php:88 arkcommercenotify.php:188 arkcommercenotify.php:278
+msgid "with order total"
+msgstr "s končnim zneskom"
+
+#: arkcommercenotify.php:88
+msgid "has been paid in full to store wallet address"
+msgstr "je bila v celoti plačana na naslov denarnice trgovine"
+
+#: arkcommercenotify.php:92 arkcommercenotify.php:192 arkcommercenotify.php:282
+msgid "Order placed at block"
+msgstr "Naročilo podano pri bloku"
+
+#: arkcommercenotify.php:94
+msgid "Order filled at block"
+msgstr "Naročilo plačano pri bloku"
+
+#: arkcommercenotify.php:96
+msgid "Order transaction ID"
+msgstr "Identifikator transakcije naročila"
+
+#: arkcommercenotify.php:98
+msgid ""
+"This WooCommerce order status is now complete. The button below links to the "
+"ARK Blockchain Explorer web application displaying the details of this "
+"transaction"
+msgstr ""
+"Stanje tega WooCommerce naročila je sedaj zaključeno. Spodnji gumb vsebuje "
+"povezavo do spletne aplikacije raziskovalca ARK blokovne verige, kjer so "
+"vidne podrobnosti transakcije"
+
+#: arkcommercenotify.php:107
+msgid "Transaction"
+msgstr "Transakcija"
+
+#: arkcommercenotify.php:115 arkcommercenotify.php:207
+#: arkcommercenotify.php:299
+msgid "Thank you for choosing ArknPay"
+msgstr "Hvala, ker ste izbrali ArknPay"
+
+#: arkcommercenotify.php:149
+msgid "This order expires at block"
+msgstr "Naročilo poteče ob bloku"
+
+#: arkcommercenotify.php:152
+msgid "This order does not expire"
+msgstr "Naročilo ne poteče"
+
+#: arkcommercenotify.php:155 arkcommercenotify.php:185
+msgid "Placed"
+msgstr "podano"
+
+#: arkcommercenotify.php:165
+msgid "ArknPay Order Placed"
+msgstr "ArknPay naročilo podano"
+
+#: arkcommercenotify.php:188
+msgid "has been placed"
+msgstr "je bilo podano"
+
+#: arkcommercenotify.php:196
+msgid ""
+"This WooCommerce order status is now on hold and ARK blockchain is currently "
+"being queried for a customer transaction fulfilling it. As soon as such a "
+"transaction is detected the order status will change to complete"
+msgstr ""
+"Stanje tega WooCoomerce naročila je sedaj na čakanju medtem, ko se izvajajo "
+"poizvedbe ARK blokovne verige v iskanju ustrezne transakcije stranke. Takoj, "
+"ko bo takšna transakcija odkrita, bo stanje naročila spremenjeno v zaključeno"
+
+#: arkcommercenotify.php:245 arkcommercenotify.php:275
+msgid "Expired"
+msgstr "poteklo"
+
+#: arkcommercenotify.php:255
+msgid "ArknPay Order Expired"
+msgstr "ArknPay naročilo poteklo"
+
+#: arkcommercenotify.php:278
+msgid "has expired"
+msgstr "je poteklo"
+
+#: arkcommercenotify.php:284
+msgid "Order expired at block"
+msgstr "Naročilo poteklo ob bloku"
+
+#: arkcommercenotify.php:286 includes/class-wc-arknpay-api.php:264
+msgid "Current block height"
+msgstr "Trenutna blokovna višina"
+
+#: arkcommercenotify.php:288
+msgid "This WooCommerce order status is now cancelled"
+msgstr "Stanje tega WooCommerce naročila je sedaj preklicano"
+
+#: arkcommerce.php:57
+msgid "Biminutely"
+msgstr "Dvominutno"
+
+#: arkcommerce.php:62
+msgid "Minutely"
+msgstr "Minutno"
+
+#: arkcommerce.php:142
+msgid "ARK Payment"
+msgstr "ARK plačilo"
+
+#: arkcommerce.php:145
+msgid ""
+"Pay for your purchase with ARK crypto currency by making a direct "
+"transaction to the ARK wallet address of the store."
+msgstr ""
+"Plačajte nakup s pomočjo neposrednega nakazila ARK kripto valute v ARK "
+"denarnico trgovine."
+
+#: arkcommerce.php:148
+msgid ""
+"Please carry out the ARK transaction using the supplied data. Be aware of "
+"the ARK network fee (0.1 ARK) and do not use an exchange wallet for the "
+"transaction."
+msgstr ""
+"Prosimo izvršite ARK transakcijo v skladu s priloženimi podatki. Zavedajte "
+"se ARK omrežne provizije (0.1 ARK) in ne uporabite borzne denarnice za "
+"izvedbo transakcije."
+
+#: arkcommerce.php:305
+msgid "Enable/Disable"
+msgstr "Omogoči/Onemogoči"
+
+#: arkcommerce.php:307
+msgid ""
+"Turn on ArknPay payment gateway to offer it to customers on checkout."
+msgstr "Vklopite ArknPay in na voljo bo strankam ob zaključku nakupa."
+
+#: arkcommerce.php:308
+msgid "Enable ARK Payments"
+msgstr "Omogoči ARK plačila"
+
+#: arkcommerce.php:312 woocommerce-woo-arknpay.php:275
+msgid "ARK Wallet Address"
+msgstr "Naslov ARK denarnice"
+
+#: arkcommerce.php:314
+msgid "The ARK wallet address to be used for payments to his store."
+msgstr "Navedena ARK denarnica je v uporabi za prejem plačil trgovine."
+
+#: arkcommerce.php:318
+msgid "ARK Node Address"
+msgstr "Naslov ARK vozlišča"
+
+#: arkcommerce.php:320
+msgid ""
+"IP address or the hostname of an ARK Mainnet node used to query the "
+"blockchain. If port is left out, the plugin uses either 443 for https or 80 "
+"for http connections. For directly accessible nodes the default port is 4001 "
+"and without https encryption."
+msgstr ""
+"IP naslov oziroma ime gostitelja ARK Mainnet vozlišča za izvajanje poizvedb "
+"na blokovni verigi. V kolikor vrata niso navedena, bodo v uporabi vrata 443 "
+"za https oziroma vrata 80 za http povezave. Za neposredno dostopna vozlišča "
+"so privzeta vrata 4001 in brez šifrirane povezave."
+
+#: arkcommerce.php:324
+msgid "Connection Encryption"
+msgstr "Šifrirana povezava"
+
+#: arkcommerce.php:326
+msgid "Turn on https encrypted communication with ARK/DARK Node API."
+msgstr ""
+"Vklop https šifrirane povezave pri komunikaciji s API-jem ARK/DARK vozlišča."
+
+#: arkcommerce.php:327
+msgid "Https encrypted/http unencrypted ARK/DARK Node Communication"
+msgstr ""
+"Https šifrirana/http nešifrirana komunikacija z API-jem ARK/DARK vozlišča"
+
+#: arkcommerce.php:331
+msgid "DARK Mode (sandbox)"
+msgstr "DARK režim delovanja (testni)"
+
+#: arkcommerce.php:333
+msgid ""
+"DARK Mode is for testing purposes only; when it is enabled, ArknPay "
+"connects to the ARK Devnet blockchain and uses the supplied DARK wallet "
+"address."
+msgstr ""
+"DARK režim delovanja je namenjen izključno testiranju; kadar je omogočen, se "
+"ArknPay povezuje na ARK Devnet blokovno verigo in uporablja naslov DARK "
+"denarnice."
+
+#: arkcommerce.php:334
+msgid "Enable DARK Mode (for testing purposes only)"
+msgstr "Omogoči DARK režim delovanja (namenjen zgolj testiranju)"
+
+#: arkcommerce.php:338
+msgid "DARK Node Address"
+msgstr "Naslov DARK vozlišča"
+
+#: arkcommerce.php:340
+msgid ""
+"IP address or the hostname of an ARK Devnet node used to query the "
+"blockchain. If port is left out, the plugin uses either 443 for https or 80 "
+"for http connections. For directly accessible nodes the default port is 4002 "
+"and without https encryption."
+msgstr ""
+"IP naslov oziroma ime gostitelja ARK Mainnet vozlišča za izvajanje poizvedb "
+"na blokovni verigi. V kolikor vrata niso navedena, bodo v uporabi vrata 443 "
+"za https oziroma vrata 80 za http povezave. Za neposredno dostopna vozlišča "
+"so privzeta vrata 4001 in brez šifrirane povezave."
+
+#: arkcommerce.php:344
+msgid "DARK Wallet Address"
+msgstr "Naslov DARK denarnice"
+
+#: arkcommerce.php:346
+msgid "The DARK wallet address to be used for payment testing in DARK Mode."
+msgstr ""
+"Navedena DARK denarnica je v uporabi za prejem testnih plačil trgovine v "
+"DARK režimu delovanja."
+
+#: arkcommerce.php:360
+msgid "Error in ARK Address formatting."
+msgstr "Napaka pri vnosu ARK naslova."
+
+#: arkcommerce.php:374
+msgid "Error in DARK Address formatting."
+msgstr "Napaka pri vnosu DARK naslova."
+
+#: arkcommerce.php:449 arkcommerce.php:468
+msgid ""
+"Awaiting initial ARK transaction check for the order. Current block height"
+msgstr ""
+"Čakanje na začetno poizvedbo po ARK transakciji naročila. Trenutna blokovna "
+"višina"
+
+#: arkcommerce.php:449
+msgid "The order does not expire."
+msgstr "Naročilo ne poteče."
+
+#: arkcommerce.php:468
+msgid "This order expires at block height:"
+msgstr "Naročilo poteče pri blokovni višini:"
+
+#: arkcommerce.php:487
+msgid ""
+"Error: ARK currency conversion service unresponsive, please try again later."
+msgstr ""
+"Napaka: ARK storitev valutne menjave neodzivna, prosimo poskusite znova "
+"kasneje."
+
+#: arkcommerce.php:490
+msgid "ArknPay ARK currency conversion error."
+msgstr "ArknPay napaka pri storitvi ARK valutne menjave."
+
+#: arkcommerce.php:498
+msgid "Error: ARK network unresponsive, please try again later."
+msgstr ""
+"Napaka: ARK omrežje neodzivno oziroma nedosegljivo, prosimo poskusite znova "
+"kasneje."
+
+#: arkcommerce.php:501 includes/class-wc-arknpay-api.php:275
+msgid "ARK network unresponsive or unreachable."
+msgstr "ARK omrežje neodzivno oziroma nedosegljivo."
+
+#: arkcommerce.php:510
+msgid "Error: ARK payment gateway order queue full, please try again later."
+msgstr ""
+"Napaka: polna čakalna vrsta ARK plačil, prosimo poskusite znova kasneje."
+
+#: arkcommerce.php:513
+msgid "ArknPay open order queue full."
+msgstr "ArknPay čakalna vrsta ARK plačil polna."
+
+#: includes/class-wc-arknpay-api.php:105
+msgid "110 blocks (cca 15 min)"
+msgstr "110 blokov (cca 15 min)"
+
+#: includes/class-wc-arknpay-api.php:106
+msgid "225 blocks (cca 30 min)"
+msgstr "225 blokov (cca 30 min)"
+
+#: includes/class-wc-arknpay-api.php:107
+msgid "450 blocks (cca 60 min)"
+msgstr "450 blokov (cca 60 min)"
+
+#: includes/class-wc-arknpay-api.php:108
+msgid "900 blocks (cca 2 hours)"
+msgstr "900 blokov (cca 2 uri)"
+
+#: includes/class-wc-arknpay-api.php:109
+msgid "1800 blocks (cca 4 hours)"
+msgstr "1800 blokov (cca 4 ure)"
+
+#: includes/class-wc-arknpay-api.php:110
+msgid "3600 blocks (cca 8 hours)"
+msgstr "3600 blokov (cca 8 ur)"
+
+#: includes/class-wc-arknpay-api.php:111
+msgid "5400 blocks (cca 12 hours)"
+msgstr "5400 blokov (cca 12 ur)"
+
+#: includes/class-wc-arknpay-api.php:112
+msgid "10800 blocks (cca 24 hours)"
+msgstr "10800 blokov (cca 24 ur)"
+
+#: includes/class-wc-arknpay-api.php:113
+msgid "75600 blocks (cca 7 days)"
+msgstr "75600 blokov (cca 7 dni)"
+
+#: includes/class-wc-arknpay-api.php:114
+msgid "151200 blocks (cca 2 weeks)"
+msgstr "151200 blokov (cca 2 tedna)"
+
+#: includes/class-wc-arknpay-api.php:115
+msgid "324000 blocks (cca 1 month)"
+msgstr "324000 blokov (cca 1 mesec)"
+
+#: includes/class-wc-arknpay-api.php:239
+msgid "ARK order filled at block:"
+msgstr "Naročilo plačano pri bloku:"
+
+#: includes/class-wc-arknpay-api.php:252 includes/class-wc-arknpay-api.php:258
+msgid "ARK transaction check yields no matches. Current block height"
+msgstr "Poizvedba po ARK transakciji brez zadetka. Trenutna blokovna višina"
+
+#: includes/class-wc-arknpay-api.php:264
+msgid "ARK order expired at block height:"
+msgstr "Naročilo je poteklo pri blokovni višini:"
+
+#: woocommerce-woo-arknpay.php:216 woocommerce-woo-arknpay.php:247
+msgid "Total"
+msgstr "Skupaj"
+
+#: woocommerce-woo-arknpay.php:275
+msgid "ARK Total"
+msgstr "Skupaj ARK"
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:50 includes/widgets/class-wc-arknpay-faq-widget.php:120
+msgid "ArknPay FAQ"
+msgstr "ArknPay pogosta vprašanja"
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:65
+msgid "Frequenty Asked Questions"
+msgstr "Pogosta vprašanja"
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:70
+msgid "What is ARK?"
+msgstr "Kaj je ARK?"
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:73
+msgid ""
+"ARK is a crypto currency that provides users, developers, and startups with "
+"innovative blockchain technologies. Its aim is to create an entire ecosystem "
+"of linked chains and a virtual spiderweb of endless use-cases that make ARK "
+"highly flexible, adaptable, and scalable."
+msgstr ""
+"ARK je kripto valuta, ki uporabnikom, razvijalcem in start-upom omogoča "
+"izrabo inovativnih tehnologij blokovnih verig . Cilj je ustvaritev celotnega "
+"ekosistema povezanih verig in virtualne pajkove mreže primerov uporabe, ki "
+"izrabljajo ARK fleksibilnost, prilagodljivost in skalabilnost."
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:76
+msgid "Why are ARK prices changing?"
+msgstr "Zakaj se ARK cene spreminjajo?"
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:79
+msgid ""
+"The store originally prices items in fiat currency and uses automatic "
+"exchange rate synchronisation that executes biminutely updates and applies "
+"the updated exchange rate on page loads. This makes their conversion into "
+"ARK prices reflect exchange rate changes."
+msgstr ""
+"Upravljalec trgovine opredeljuje cenitve izdelkov v fiat valuti in izrablja "
+"samodejno sinhronizacijo menjalnega razmerja, ki se posodablja vsaki dve "
+"minuti, ter uveljavi spremembo ob vsakem prikazu strani. Iz tega razloga se "
+"vsakič ob pretvorbi v ARK odražajo te spremembe v ceni."
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:82
+msgid "Why mustn't I use an exchange wallet?"
+msgstr "Zakaj ne smem uporabiti borzne denarnice?"
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:85
+msgid ""
+"Because none of the exchanges allow users to enter anything into the "
+"SmartBridge field, whereas this store necessitates order number reference "
+"entry that enables automatic transaction discovery and order processing by "
+"the system."
+msgstr ""
+"Ker nobena izmed borz uporabnikom ne omogoča kakršnegakoli vnosa v "
+"SmartBridge polje, medtem ko sistem v uporabi trgovine terja vnos sklica "
+"številke naročila, kar omogoča samodejno odkrivanje transakcij in obdelavo "
+"naročil."
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:88
+msgid "What is order expiry?"
+msgstr "Kaj je potek naročila?"
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:91
+msgid ""
+"The store can set up an order expiry period within which customers must "
+"execute the ARK payment transaction for their orders, otherwise they get "
+"cancelled. This feature serves as a risk management mechanism protecting "
+"against crypto currency market volatility."
+msgstr ""
+"Trgovina lahko nastavi obdobje poteka naročila, znotraj katerega morajo "
+"stranke izvršiti ARK transakcijo za plačilo svojega naročila, sicer se "
+"slednje prekliče. Ta funkcija služi kot mehanizem upravljanja s tveganjem "
+"pred spremembami na kripto valutnem trgu."
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:94
+msgid "How do I carry out an ARK transaction?"
+msgstr "Kako izvedem ARK transakcijo?"
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:97
+msgid ""
+"Use the ARK Online or ARK Desktop or ARK Mobile wallets to do so. When "
+"making a transaction simply follow the instructions provided both upon order "
+"placement and inside the order confirmation email. They include store wallet "
+"address, SmartBridge reference and the amount total."
+msgstr ""
+"Uporabite ARK spletno, namizno, ali mobilno denarnico za izvedbo, pri čemer "
+"sledite navodilom, ki so vidna tako pri podaji naročila kot tudi znotraj e-"
+"poštnega potrdila naročila. Obsegajo naslov denarnice trgovine, SmartBridge "
+"sklic in končni znesek."
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:100
+msgid "I paid for my order and got no response!"
+msgstr "Naročilo je plačano, a ni odziva!"
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:103
+msgid ""
+"There may be an error storeside that caused automatic order transaction "
+"discovery and order processing to fail. Do not hesitate to request "
+"assistance via store support channel with your Transaction ID so they are "
+"able to manually verify the payment."
+msgstr ""
+"Morebiti je prišlo do napake na strani trgovine, kar je onemogočilo "
+"samodejno odkrivanje transakcije in uspešno obdelavo naročila. Ne oklevajte "
+"z zahtevo po kanalu podpore trgovca, ki bo ročno preveril vaše plačilo, "
+"potrebujete le identifikator transakcije."
+
+#~ msgid "Error: ARK network unresponsive"
+#~ msgstr "Napaka: ARK omrežje neodzivno"
+
+#~ msgid "ArknPay Node unresponsive"
+#~ msgstr "ArknPay vozlišče neodzivno"
+
+#~ msgid "ArknPay Node unresponsive."
+#~ msgstr "ArknPay vozlišče neodzivno."
+
+#~ msgid "store wallet"
+#~ msgstr "denarnica trgovine"
+
+#~ msgid ""
+#~ "IP address including port of or the ARK Mainnet node hostname to query. "
+#~ "If port is left out, the plugin uses either 443 for https or 80 for http "
+#~ "connections. For directly accessible nodes the default port is 4001 and "
+#~ "without https encryption."
+#~ msgstr ""
+#~ "IP naslov oziroma ime gostitelja ARK Devnet vozlišča za izvajanje "
+#~ "poizvedb na blokovni verigi. V kolikor vrata niso navedena, bodo v "
+#~ "uporabi vrata 443 za https oziroma vrata 80 za http povezave. Za "
+#~ "neposredno dostopna vozlišča so privzeta vrata 4002 in brez šifrirane "
+#~ "povezave."
+
+#~ msgid ""
+#~ "IP address including port of or the ARK Mainnet node hostname to query. "
+#~ "If port is left out, the plugin uses either 443 for https or 80 for http "
+#~ "connections. For directly accessible nodes the default port is 4002 and "
+#~ "without https encryption."
+#~ msgstr ""
+#~ "IP naslov oziroma ime gostitelja ARK Devnet vozlišča za izvajanje "
+#~ "poizvedb na blokovni verigi. V kolikor vrata niso navedena, bodo v "
+#~ "uporabi vrata 443 za https oziroma vrata 80 za http povezave. Za "
+#~ "neposredno dostopna vozlišča so privzeta vrata 4002 in brez šifrirane "
+#~ "povezave."
+
+#~ msgid "Server"
+#~ msgstr "Strežnik"
+
+#~ msgid "ArknPay User Email"
+#~ msgstr "ArknPay e-poštni naslov uporabnika"
+
+#~ msgid "The email address required to access the ArknPay Node API."
+#~ msgstr ""
+#~ "E-poštni naslov, ki je bil podan ob registraciji in je potreben za dostop "
+#~ "do API ArknPay vozlišča."
+
+#~ msgid "ArknPay Username"
+#~ msgstr "ArknPay uporabniško ime"
+
+#~ msgid "The username required to access the ArknPay Node API."
+#~ msgstr "Uporabniško ime, potrebno za dostop do API ArknPay vozlišča."
+
+#~ msgid "ArknPay Password"
+#~ msgstr "ArknPay geslo"
+
+#~ msgid "The password required to access the ArknPay Node API."
+#~ msgstr "Geslo, potrebno za dostop do API ArknPay vozlišča."
+
+#~ msgid "Error in Username length, 6 character minimum required."
+#~ msgstr ""
+#~ "Napaka pri dolžini uporabniškega imena, ki mora imetii vsaj 6 znakov."
+
+#~ msgid "Error in User Email, please review the setting and retry."
+#~ msgstr ""
+#~ "Napaka pri e-poštnem naslovu, prosimo preverite pravilnost vnosa in "
+#~ "poskusite znova."
+
+#~ msgid ""
+#~ "user account inactive. Please renew it as soon as possible or deactivate "
+#~ "ArknPay. Payment gateway services currently unavailable."
+#~ msgstr ""
+#~ "uporabniški račun ni aktiven. Prosimo obnovite ga čim prej ali "
+#~ "onemogočite ArknPay. ARK način plačila trenutno ni na voljo."
+
+#~ msgid "user credentials missing. To obtain them please register at"
+#~ msgstr "pogreša overilnice uporabnika. Registracijo zanje lahko opravite na"
+
+#~ msgid "Demands Attention"
+#~ msgstr "terja pozornost"
+
+#~ msgid "ArknPay Order Demands Manual Processing"
+#~ msgstr "ArknPay naročilo terja ročno obdelavo"
+
+#~ msgid "Demands Manual Processing"
+#~ msgstr "terja ročno obdelavo"
+
+#~ msgid "demands manual processing due to ArknPay Node inaccessibility"
+#~ msgstr "terja ročno obdelavo zaradi nedosegljivosti ArknPay vozlišča"
+
+#~ msgid ""
+#~ "This WooCommerce order status is now on hold and you are advised to "
+#~ "monitor the store ARK wallet address for incoming customer transaction "
+#~ "fulfilling it. As soon as such a transaction appears please change its "
+#~ "status to complete"
+#~ msgstr ""
+#~ "Stanje tega WooCoomerce naročila je sedaj na čakanju na plačilo, zato je "
+#~ "močno priporočeno ročno spremljanje prilivov v ARK denarnico trgovine za "
+#~ "identifikacijo tiste, ki je namenjena plačilu tega naročila. Ko jo "
+#~ "zaznate, prosimo spremenite status naročila v zaključeno."
+
+#~ msgid "ArknPay Node database currently unavailable"
+#~ msgstr "ArknPay podatkovna baza vozlišča nedosegljiva"
+
+#~ msgid "ArknPay Server"
+#~ msgstr "ArknPay Strežnik"
+
+#~ msgid "ArknPay Manager"
+#~ msgstr "ArknPay Upravnik"
+
+#~ msgid "Manager"
+#~ msgstr "Upravnik"
+
+#~ msgid ""
+#~ "opens in ARK blockchain explorer application; also accessible via QR Code"
+#~ msgstr ""
+#~ "odpre v raziskovalcu ARK blokovne verige; dosegljiv tudi preko QR kode"
+
+#~ msgid "ARK Delegates Report"
+#~ msgstr "Poročilo o ARK delegatih"
+
+#~ msgid "ARK Market Price"
+#~ msgstr "ARK tržna cena"
+
+#~ msgid ""
+#~ "Unable to display current market prices for ARK, coinmarketcap.com "
+#~ "unresponsive."
+#~ msgstr ""
+#~ "Začasno ni možen prikaz ARK tržnih cen, coinmarketcap.com je trenutno "
+#~ "neodziven."
+
+#~ msgid "ARK market price"
+#~ msgstr "ARK tržna cena"
+
+#~ msgid "Unable to display ARK market price from coinmarketcap.com"
+#~ msgstr "Ni moč prikazati ARK tržnih cen iz coinmarketcap.com"
+
+#~ msgid ""
+#~ "WARNING: WHEN CREATING A NEW WALLET MAKE SURE TO SAFELY STORE THE "
+#~ "PASSPHRASE! THERE IS NO WAY OF RECOVERING A LOST ONE!"
+#~ msgstr ""
+#~ "OPOZORILO: KADAR USTVARJATE NOVO DENARNICO SE PREPRIČAJTE, DA JE GESLO "
+#~ "VARNO SHRANJENO! POZABLJENEGA NI MOGOČE POVRNITI!"
+
+#~ msgid ""
+#~ "ArknPay payment gateway enables merchants to receive payments in ARK "
+#~ "crypto currency without requiring or storing wallet passphrases."
+#~ msgstr ""
+#~ "ArknPay omogoča trgovcem prejemanje plačil z ARK kripto valuto, pri "
+#~ "čemer ne zahteva niti ne hrani kakršnihkoli gesel denarnic."
+
+#~ msgid ""
+#~ "Both automatic exchange rate synchronization and transaction verification "
+#~ "queries depend on \"WP-Cron\" task; for details refer to"
+#~ msgstr ""
+#~ "Tako samodejna sinhronizacija menjalnega razmerja kot poizvedbe, "
+#~ "namenjene preverjanju transakcij, se zanašata na \"WP-Cron\" opravilo; "
+#~ "več o tem v"
+
+#~ msgid "Enter the the following command into Windows PowerShell"
+#~ msgstr "Vnesite naslednji ukazno vrstico v Windows PowerShell"
+
+#~ msgid ""
+#~ "Log into cPanel > Advanced > Cron Jobs > Add New > Set the interval to 1 "
+#~ "minute and use following string"
+#~ msgstr ""
+#~ "Vpišite se v cPanel > Advanced > Cron Jobs > Add New in nastavite "
+#~ "interval na 1 minuto, ter vnesite naslednji niz"
+
+#~ msgid "DARK Mode Settings"
+#~ msgstr "Nastavitve DARK režima delovanja"
+
+#~ msgid "DARK Paper Wallet"
+#~ msgstr "DARK denarnica"
+
+#~ msgid "ARK Faucet"
+#~ msgstr "ARK pipa"
+
+#~ msgid ""
+#~ "ArknPay is a payment gateway that provides the infrastructure for ARK "
+#~ "crypto currency payment services for WooCommerce store operators on "
+#~ "WordPress platform and does so without requiring or storing wallet "
+#~ "passphrases. All orders placed via ArknPay are kept on-hold until the "
+#~ "ARK blockchain queries reveal a transaction for an appropriate amount of "
+#~ "ARK and a correct order reference making a deposit into the monitored ARK "
+#~ "wallet address belonging to the store, after which the order is marked as "
+#~ "complete. There is the option to limit the timeframe within which the "
+#~ "customer must execute the transaction, or else the order gets cancelled."
+#~ msgstr ""
+#~ "ArknPay je način plačila za WooCommerce spletne trgovine na WordPress "
+#~ "platformi in upravljalcem trgovin nudi infrastrukturo za opravljanje "
+#~ "plačilnih storitev z ARK kripto valuto, kar opravlja brez potrebe po "
+#~ "shranjevanju gesel denarnic. Vsa naročila, podana s pomočjo ArknPay "
+#~ "so na čakanju vse dokler se poizvedbe v ARK blokovni verigi ne izidejo z "
+#~ "zadetkom ustrezne transakcije, ki vsebuje primeren znesek in sklic ter je "
+#~ "izvedena v nadzorovano ARK denarnico, ki pripada trgovini. Zatem se "
+#~ "stanje naročila samodejno spremeni v zaključeno. Na voljo je tudi možnost "
+#~ "omejitve časovnega okvira, znotraj katerega mora stranka izvesti "
+#~ "transakcijo, sicer se naročilo samodejno prekliče."
+
+#~ msgid "Error in ARK Address, please review the desired setting and retry."
+#~ msgstr ""
+#~ "Napaka pri naslovu ARK denarnice, prosimo preverite pravilnost vnosa in "
+#~ "poskusite znova."
+
+#~ msgid ""
+#~ "Use ARK crypto currency to immediately pay for your purchase by making a "
+#~ "direct transaction to the ARK wallet address of the store. The "
+#~ "transaction must be carried out from your own ARK wallet so the order "
+#~ "number can be referenced in the SmartBridge field."
+#~ msgstr ""
+#~ "Uporabite ARK kripto valuto za takojšnje plačilo nakupa s pomočjo "
+#~ "neposrednega nakazila na naslov ARK denarnice trgovine. Transakcija mora "
+#~ "biti izvedena iz vaše lastne ARK denarnice, od koder je moč vnesti sklic "
+#~ "v SmartBridge polje."
+
+#~ msgid ""
+#~ "Testing mode; if enabled make sure to configure settings in Preferences."
+#~ msgstr ""
+#~ "Testni režim; v kolikor ga omogočite vsekakor nastavite vse potrebno v "
+#~ "preferencah."
+
+#~ msgid "Hostname used to access ArknPay Node services."
+#~ msgstr "Ime gostitelja za dostop do storitev ArknPay vozlišča."
+
+#~ msgid "ArknPay Node API Key"
+#~ msgstr "ArknPay vozliščni API ključ"
+
+#~ msgid "The key required to access ArknPay Node services."
+#~ msgstr "Ključ, potreben za uporabo storitev ArknPay vozlišča."
+
+#~ msgid ""
+#~ "Error in ArknPay Node API key, please review the desired setting and "
+#~ "retry."
+#~ msgstr ""
+#~ "Napaka pri ArknPay API ključu, prosimo preverite pravilnost vnosa in "
+#~ "poskusite znova."
+
+#~ msgid "DARK Node API Key"
+#~ msgstr "DARK vozliščni API ključ"
+
+#~ msgid "This order does not expire."
+#~ msgstr "To naročilo ne poteče"
+
+#~ msgid "via coinmarketcap.com"
+#~ msgstr "via coinmarketcap.com"
+
+#~ msgid "ARK Payment complete at block:"
+#~ msgstr "ARK plačilo izvršeno na bloku:"
+
+#~ msgid "ARK payment expired at block height:"
+#~ msgstr "ARK plačilo je poteklo na blokovni višini:"
+
+#~ msgid "ArknPay Node unresponsive, retry scheduled in 1 min."
+#~ msgstr "ArknPay vozlišče neodzivno, ponoven poizkus čez 1 min."

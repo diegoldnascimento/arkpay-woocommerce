@@ -1,0 +1,1126 @@
+# ArknPay translation strings
+# Copyright (C) 2017-2018 Milan Semen
+# This file is distributed under the same license as the entire ArknPay package
+msgid ""
+msgstr ""
+"Project-Id-Version: VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-13 08:34+0000\n"
+"PO-Revision-Date: 2018-06-05 09:37+0100\n"
+"Last-Translator: \n"
+"Language-Team: ArknPay <info@arkcommerce.net>\n"
+"Language: sl_SI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.4\n"
+
+#: woocommerce-widget-arknpay.php:48
+msgid "ARK Conversion"
+msgstr ""
+
+#: woocommerce-widget-arknpay.php:67
+msgid "Exchange Rate"
+msgstr ""
+
+#: woocommerce-widget-arknpay.php:67 arkcommercegui.php:437 arkcommercegui.php:445
+#: arkcommercegui.php:493 arkcommercenotify.php:49 arkcommercenotify.php:143
+#: arkcommercenotify.php:239
+msgid "per ARK"
+msgstr ""
+
+#: woocommerce-widget-arknpay.php:67
+msgid "Convert"
+msgstr ""
+
+#: woocommerce-widget-arknpay.php:81
+msgid "Currency Converter"
+msgstr ""
+
+#: woocommerce-widget-arknpay.php:84 includes/widgets/class-wc-arknpay-faq-widget.php:123
+msgid "Title:"
+msgstr ""
+
+#: arkcommercegui.php:26 arkcommercegui.php:864 arkcommercegui.php:968
+msgid "Settings"
+msgstr ""
+
+#: arkcommercegui.php:26 arkcommercegui.php:99 arkcommercegui.php:104
+#: arkcommercegui.php:109 arkcommercegui.php:337 arkcommercegui.php:969
+#: arkcommercegui.php:985
+msgid "Preferences"
+msgstr ""
+
+#: arkcommercegui.php:45 arkcommercegui.php:124 arkcommercegui.php:345
+#: arkcommercegui.php:971 arkcommercegui.php:989
+msgid "Information"
+msgstr ""
+
+#: arkcommercegui.php:46
+msgid "Donate ARK"
+msgstr ""
+
+#: arkcommercegui.php:94
+msgid ""
+"requires your attention for a functioning setup. Please enter a valid ARK "
+"Wallet Address or disable ArknPay."
+msgstr ""
+
+#: arkcommercegui.php:99
+msgid ""
+"Currently selected store currency is not supported in automatic exchange "
+"rate mode. Please switch to the fixed exchange rate in"
+msgstr ""
+
+#: arkcommercegui.php:104
+msgid ""
+"Currently selected store currency does not have its fixed exchange rate "
+"defined, please do so in"
+msgstr ""
+
+#: arkcommercegui.php:109
+msgid ""
+"Currently selected store currency exchange rate multiplier has not been "
+"defined, please do so in"
+msgstr ""
+
+#: arkcommercegui.php:114
+msgid ""
+"payment gateway plugin is currently not enabled. Please configure and enable "
+"it or deactivate ArknPay."
+msgstr ""
+
+#: arkcommercegui.php:119
+msgid ""
+"requires your attention for a functioning DARK Mode setup. Please enter a "
+"valid DARK Wallet Address or disable DARK Mode."
+msgstr ""
+
+#: arkcommercegui.php:124
+msgid ""
+"It is highly recommended turning on \"Hard Cron\" scheduled task operation. "
+"Guides are found in"
+msgstr ""
+
+#: arkcommercegui.php:129
+msgid ""
+"ARK network unresponsive or unreachable. Payment gateway service currently "
+"unavailable."
+msgstr ""
+
+#: arkcommercegui.php:134
+msgid ""
+"ArknPay requires deactivation and reactivation to upgrade properly and "
+"resume operation."
+msgstr ""
+
+#: arkcommercegui.php:167 arkcommercegui.php:287 arkcommercegui.php:739
+msgid "ArknPay operational"
+msgstr ""
+
+#: arkcommercegui.php:167 arkcommercegui.php:739
+msgid "ARK block height"
+msgstr ""
+
+#: arkcommercegui.php:168 arkcommercegui.php:740
+msgid "ARK network unresponsive or unreachable"
+msgstr ""
+
+#: arkcommercegui.php:171
+msgid "Market exchange rate"
+msgstr ""
+
+#: arkcommercegui.php:171
+msgid "Store exchange rate"
+msgstr ""
+
+#: arkcommercegui.php:177 arkcommercegui.php:247
+msgid "Store Wallet"
+msgstr ""
+
+#: arkcommercegui.php:177
+msgid "Balance"
+msgstr ""
+
+#: arkcommercegui.php:180
+msgid "Latest 10 Transactions"
+msgstr ""
+
+#: arkcommercegui.php:180 arkcommercegui.php:749
+msgid "Sender"
+msgstr ""
+
+#: arkcommercegui.php:180 arkcommercegui.php:290 arkcommercegui.php:749
+msgid "Amount"
+msgstr ""
+
+#: arkcommercegui.php:182
+msgid "Address"
+msgstr ""
+
+#: arkcommercegui.php:199
+msgid "Latest Orders via ArknPay"
+msgstr ""
+
+#: arkcommercegui.php:199 arkcommercegui.php:771
+msgid "Order ID"
+msgstr ""
+
+#: arkcommercegui.php:199 arkcommercegui.php:771
+msgid "Order Total (Ѧ)"
+msgstr ""
+
+#: arkcommercegui.php:199 arkcommercegui.php:771
+msgid "Order Status"
+msgstr ""
+
+#: arkcommercegui.php:239 arkcommercegui.php:805
+msgid "ArknPay DARK Mode enabled"
+msgstr ""
+
+#: arkcommercegui.php:247 arkcommercegui.php:749 arkcommercegui.php:771
+msgid "Transaction ID"
+msgstr ""
+
+#: arkcommercegui.php:247
+msgid "Open in Explorer"
+msgstr ""
+
+#: arkcommercegui.php:258
+msgid "ArknPay Manual TX Check"
+msgstr ""
+
+#: arkcommercegui.php:287
+msgid "Latest ARK transactions"
+msgstr ""
+
+#: arkcommercegui.php:287
+msgid "ARK wallet"
+msgstr ""
+
+#: arkcommercegui.php:298 arkcommercegui.php:759
+msgid "No incoming transactions found."
+msgstr ""
+
+#: arkcommercegui.php:328
+msgid "ArknPay Navigator"
+msgstr ""
+
+#: arkcommercegui.php:329 arkcommercegui.php:970 arkcommercegui.php:981
+msgid "Navigator"
+msgstr ""
+
+#: arkcommercegui.php:336
+msgid "ArknPay Preferences"
+msgstr ""
+
+#: arkcommercegui.php:344
+msgid "ArknPay Information"
+msgstr ""
+
+#: arkcommercegui.php:385
+msgid "110 blocks (unpaid order expires in cca 15 min)"
+msgstr ""
+
+#: arkcommercegui.php:386
+msgid "225 blocks (unpaid order expires in cca 30 min)"
+msgstr ""
+
+#: arkcommercegui.php:387
+msgid "450 blocks (unpaid order expires in cca 60 min)"
+msgstr ""
+
+#: arkcommercegui.php:388
+msgid "900 blocks (unpaid order expires in cca 2 hours)"
+msgstr ""
+
+#: arkcommercegui.php:389
+msgid "1800 blocks (unpaid order expires in cca 4 hours)"
+msgstr ""
+
+#: arkcommercegui.php:390
+msgid "3600 blocks (unpaid order expires in cca 8 hours)"
+msgstr ""
+
+#: arkcommercegui.php:391
+msgid "5400 blocks (unpaid order expires in cca 12 hours)"
+msgstr ""
+
+#: arkcommercegui.php:392
+msgid "10800 blocks (unpaid order expires in cca 24 hours)"
+msgstr ""
+
+#: arkcommercegui.php:393
+msgid "75600 blocks (unpaid order expires in cca 7 days)"
+msgstr ""
+
+#: arkcommercegui.php:394
+msgid "151200 blocks (unpaid order expires in cca 2 weeks)"
+msgstr ""
+
+#: arkcommercegui.php:395
+msgid "324000 blocks (unpaid order expires in cca 1 month)"
+msgstr ""
+
+#: arkcommercegui.php:396 includes/class-wc-arknpay-api.php:116
+msgid "None (order never expires)"
+msgstr ""
+
+#: arkcommercegui.php:437 arkcommercegui.php:445
+msgid "Current store exchange rate"
+msgstr ""
+
+#: arkcommercegui.php:441
+msgid "Unable to determine the exchange rate"
+msgstr ""
+
+#: arkcommercegui.php:445
+msgid "Current market exchange rate"
+msgstr ""
+
+#: arkcommercegui.php:450
+msgid "ARK is the currently chosen default store currency"
+msgstr ""
+
+#: arkcommercegui.php:459 arkcommercegui.php:743
+msgid "ARK wallet address"
+msgstr ""
+
+#: arkcommercegui.php:465
+msgid "opens in the official ARK blockchain explorer application"
+msgstr ""
+
+#: arkcommercegui.php:475
+msgid "Exchange Rate Settings"
+msgstr ""
+
+#: arkcommercegui.php:481
+msgid "Automatic exchange rate with multiplication"
+msgstr ""
+
+#: arkcommercegui.php:483
+msgid "e.g. 1.01 multiplier is 1 percent over market rate"
+msgstr ""
+
+#: arkcommercegui.php:488
+msgid "Automatic exchange rate"
+msgstr ""
+
+#: arkcommercegui.php:491
+msgid "Fixed exchange rate"
+msgstr ""
+
+#: arkcommercegui.php:497
+msgid ""
+"Ignored if ARK is the chosen default store currency. Automatic exchange rate "
+"for supported currencies sourced through periodic updates from coinmarketcap."
+"com. Unsupported currencies only allow for a fixed exchange rate"
+msgstr ""
+
+#: arkcommercegui.php:505 woocommerce-woo-arknpay.php:216 woocommerce-woo-arknpay.php:218
+#: woocommerce-woo-arknpay.php:247 woocommerce-woo-arknpay.php:249 woocommerce-woo-arknpay.php:275
+msgid "Order Expiry"
+msgstr ""
+
+#: arkcommercegui.php:514
+msgid ""
+"Timeframe within which the customer must carry out the ARK transaction or "
+"the order gets automatically cancelled"
+msgstr ""
+
+#: arkcommercegui.php:522
+msgid "Customer Information"
+msgstr ""
+
+#: arkcommercegui.php:527
+msgid "Payment gateway title the customer sees during checkout"
+msgstr ""
+
+#: arkcommercegui.php:530
+msgid "Payment method description the customer sees during checkout"
+msgstr ""
+
+#: arkcommercegui.php:534
+msgid "Instructions that will be added to the thank you page and emails"
+msgstr ""
+
+#: arkcommercegui.php:539
+msgid ""
+"Display dual prices side by side in chosen default store currency and ARK"
+msgstr ""
+
+#: arkcommercegui.php:542
+msgid "Display ARK information on cart page"
+msgstr ""
+
+#: arkcommercegui.php:544
+msgid ""
+"ARK information is displayed in a notice consisting of either just order "
+"expiry timeout in case of ARK being the store default currency, or cart "
+"total in ARK and order expiry timeout in case of other currency being the "
+"store default. This setting does not apply to cart checkout page"
+msgstr ""
+
+#: arkcommercegui.php:551
+msgid "Email Notifications"
+msgstr ""
+
+#: arkcommercegui.php:561
+msgid "Whenever an order is placed via ArknPay payment gateway"
+msgstr ""
+
+#: arkcommercegui.php:564
+msgid "Whenever an order is filled via ArknPay payment gateway"
+msgstr ""
+
+#: arkcommercegui.php:567
+msgid "Whenever an order made via ArknPay payment gateway has expired"
+msgstr ""
+
+#: arkcommercegui.php:569
+msgid ""
+"Notifications contain additional order information and get sent to the "
+"chosen administrator or shop manager user email address on selected order "
+"events"
+msgstr ""
+
+#: arkcommercegui.php:577
+msgid "Save Changes"
+msgstr ""
+
+#: arkcommercegui.php:586
+msgid "Your preferences have been saved."
+msgstr ""
+
+#: arkcommercegui.php:587
+msgid "Incorrect entry, please review the failed setting change and retry."
+msgstr ""
+
+#: arkcommercegui.php:743
+msgid "balance"
+msgstr ""
+
+#: arkcommercegui.php:743
+msgid "opens in ARK blockchain explorer application"
+msgstr ""
+
+#: arkcommercegui.php:749
+msgid "Latest 10 ARK Transactions"
+msgstr ""
+
+#: arkcommercegui.php:771
+msgid "Latest 10 ArknPay Orders"
+msgstr ""
+
+#: arkcommercegui.php:771
+msgid "Order Block"
+msgstr ""
+
+#: arkcommercegui.php:771
+msgid "Payment Block"
+msgstr ""
+
+#: arkcommercegui.php:771
+msgid "Expiry Block"
+msgstr ""
+
+#: arkcommercegui.php:776 arkcommercegui.php:778
+msgid "N/A"
+msgstr ""
+
+#: arkcommercegui.php:806
+msgid "ArknPay payment gateway enabled"
+msgstr ""
+
+#: arkcommercegui.php:808
+msgid "ArknPay payment gateway disabled"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "ARK Wallet Guides"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "ARK Blockchain Information"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "ARK News Sources"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "WordPress Cron Information"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "Free ARK"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "Free DARK"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "ARK Wallet Setup"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "Ledger Nano S Hardware Wallet Guide"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "ARK Voting"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "ARK Blockchain Explorer"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "ARK Official Blog"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "ARK Community Fund"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "ARK Official Slack"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "Hooking WP-Cron Into the System Task Scheduler"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "Biz_Classic ARK Community Faucet"
+msgstr ""
+
+#: arkcommercegui.php:811
+msgid "DARK Paper Wallet Generator (automatically dispenses free DARK tokens)"
+msgstr ""
+
+#: arkcommercegui.php:821
+msgid ""
+"Thank you for choosing ArknPay. This project was supported by Ark "
+"Community Fund"
+msgstr ""
+
+#: arkcommercegui.php:826
+msgid "About ARK"
+msgstr ""
+
+#: arkcommercegui.php:830
+msgid ""
+"In a sea of carbon copies among crypto currencies, ARK stands out for "
+"providing the users, developers, and startups with innovative blockchain "
+"technologies aiming to create an entire ecosystem of linked chains and a "
+"virtual spiderweb of endless use-cases that make it highly flexible, "
+"adaptable, and scalable. Having launched in late March 2017, it has gained "
+"many supporters for its DPoS (Delegated Proof of Stake) blockchain securing "
+"mechanism as a green alternative to traditional PoW (Proof of Work) cryto "
+"currencies, one that enables much faster and less expensive execution of "
+"transactions, and one that lends itself well to processing automation. A big "
+"win for ARK is its inherent system of governance through user voting with "
+"their wallet balances for delegates where the best of them get rewarded with "
+"loyalty, longevity, and profit sharing whereas bad actors or low-performance "
+"delegates eventually get kicked out of the top 51 forging delegates. These "
+"are the only ones that actually \"mine\" ARK blockchain, receive transaction "
+"fees, and reap the rewards (2 ARK per block) stemming from it. As a "
+"currency, ARK features a modest inflation rate which makes it suitable as a "
+"long-term hold."
+msgstr ""
+
+#: arkcommercegui.php:833
+msgid ""
+"The roadmap for future development is very ambitious for the steadily "
+"growing and capable team behind it intends to incorporate various features "
+"like ArkVM (Virtual Machine) such as the one found in Ethereum, as well as "
+"coming integrations of IPFS (Interplanetary File System) and IPDB "
+"(Interplanetary Database) transactions, push-button deployable blockchains, "
+"a distributed token exchange, and so on. From this standpoint, ARK is poised "
+"to become one of the top contenders for crypto currency throne in the "
+"future. The user base and the development ecosystem that has sprung up "
+"around ARK is truly fruitful and dedicated, which makes the success of the "
+"entire project that much more likely."
+msgstr ""
+
+#: arkcommercegui.php:837
+msgid "About ArknPay"
+msgstr ""
+
+#: arkcommercegui.php:841
+msgid ""
+"ArknPay is a payment gateway that provides crypto currency payment "
+"services for WooCommerce store operators on WordPress platform by utilizing "
+"the ARK blockchain. Fully based on open source code and architecture, "
+"ArknPay aims to provide the necessary e-commerce infrastructure with the "
+"goal of wider market acceptance for ARK by both customers and merchants. "
+"Online merchants struggle with risk-free and timely digital product delivery "
+"via established fiat currency payment intermediaries. This makes for a "
+"particularly suitable use case for crypto currency payments that happen in "
+"trustless, straightforward, and automated fashion."
+msgstr ""
+
+#: arkcommercegui.php:844
+msgid ""
+"ArknPay leverages the versatility, resilience and quickness of the ARK "
+"blockchain that features a special field called SmartBridge which enables "
+"user input as part of the transaction, whereas 8 second block times "
+"facilitate prompt transaction confirmations. All orders placed through "
+"ArknPay are placed on-hold until repetitive ARK blockchain queries for "
+"open orders reveal a transaction for an appropriate amount of ARK and with a "
+"correct order reference making a deposit into the monitored ARK wallet "
+"address belonging to the store, all without requiring or storing wallet "
+"passphrases."
+msgstr ""
+
+#: arkcommercegui.php:848
+msgid "Quick Guides"
+msgstr ""
+
+#: arkcommercegui.php:853
+msgid "Set ARK as Default Currency"
+msgstr ""
+
+#: arkcommercegui.php:858 arkcommercegui.php:892 arkcommercegui.php:914
+msgid "Step 1"
+msgstr ""
+
+#: arkcommercegui.php:860
+msgid "Open WordPress administration interface at"
+msgstr ""
+
+#: arkcommercegui.php:864
+msgid "and select"
+msgstr ""
+
+#: arkcommercegui.php:867 arkcommercegui.php:901
+msgid "Step 2"
+msgstr ""
+
+#: arkcommercegui.php:869
+msgid ""
+"Scroll down and select \"Currency\" dropdown entry \"ARK (Ѧ)\", and enter "
+"\"8\" into \"Number of decimals\" field."
+msgstr ""
+
+#: arkcommercegui.php:872
+msgid "Step 3"
+msgstr ""
+
+#: arkcommercegui.php:874
+msgid ""
+"Click on the button \"Save changes\" to apply the changes effective "
+"immediately."
+msgstr ""
+
+#: arkcommercegui.php:878
+msgid "Hard Cron Quick Guide"
+msgstr ""
+
+#: arkcommercegui.php:884
+msgid ""
+"Both automatic exchange rate synchronization and transaction verification "
+"queries depend on \"WP-Cron\" task being triggered as regularly as possible, "
+"therefore in case this store is low-traffic (i.e. does not get hits every "
+"minute) it is highly recommended to implement \"Hard Cron\" solution to "
+"ensure proper scheduled task execution. A general guide on how to do so in "
+"two steps is found below, however your specific permissions and allowed "
+"methods may depend on your hosting provider so refer to them for assistance "
+"in case there are difficulties."
+msgstr ""
+
+#: arkcommercegui.php:888
+msgid "Option 1: Using cPanel"
+msgstr ""
+
+#: arkcommercegui.php:894
+msgid ""
+"FTP or SSH into your web host, edit \"wp-config.php\" file which usually "
+"resides under \"htdocs\" folder and place the following code under the first "
+"\"define\" line"
+msgstr ""
+
+#: arkcommercegui.php:903
+msgid ""
+"Log into cPanel > Advanced > Cron Jobs > Add New > Set the interval to 1 "
+"minute by using the string below; in case your hosting provider offers only "
+"longer intervals, pick the shortest one but be aware that such a setup is "
+"suboptimal"
+msgstr ""
+
+#: arkcommercegui.php:910
+msgid "Option 2: Using Command Line"
+msgstr ""
+
+#: arkcommercegui.php:916
+msgid ""
+"SSH or connect using Remote Desktop into your web host, edit \"wp-config.php"
+"\" file which usually resides under \"htdocs\" folder and place the "
+"following code under the first \"define\" line"
+msgstr ""
+
+#: arkcommercegui.php:923
+msgid "Step 2A (Linux)"
+msgstr ""
+
+#: arkcommercegui.php:925
+msgid "Edit the crontab with the following command"
+msgstr ""
+
+#: arkcommercegui.php:932
+msgid "Step 3A"
+msgstr ""
+
+#: arkcommercegui.php:934
+msgid "Scroll all the way down and insert the following line"
+msgstr ""
+
+#: arkcommercegui.php:941
+msgid "Step 2B (Windows)"
+msgstr ""
+
+#: arkcommercegui.php:943
+msgid ""
+"Open the Windows Command Line (CMD.EXE) as Administrator and enter the "
+"following command"
+msgstr ""
+
+#: arkcommercegui.php:951
+msgid "Useful External Links"
+msgstr ""
+
+#: arkcommercegui.php:967 arkcommercegui.php:973
+msgid "Website"
+msgstr ""
+
+#: arkcommercegui.php:973
+msgid "Online Wallet"
+msgstr ""
+
+#: arkcommercegui.php:973
+msgid "Desktop Wallet"
+msgstr ""
+
+#: arkcommercegui.php:973
+msgid "Mobile Wallet"
+msgstr ""
+
+#: arkcommercegui.php:1000
+#, php-format
+msgid ""
+"If you enjoy using <b>ArknPay</b> please leave us a %s rating on %s."
+msgstr ""
+
+#: arkcommercenotify.php:49 arkcommercenotify.php:143 arkcommercenotify.php:239
+msgid "Order total converted to ARK from"
+msgstr ""
+
+#: arkcommercenotify.php:49 arkcommercenotify.php:143 arkcommercenotify.php:239
+msgid "at the following exchange rate"
+msgstr ""
+
+#: arkcommercenotify.php:52 arkcommercenotify.php:146 arkcommercenotify.php:242
+msgid "Order total originally priced in ARK at"
+msgstr ""
+
+#: arkcommercenotify.php:55 arkcommercenotify.php:85 arkcommercenotify.php:155
+#: arkcommercenotify.php:185 arkcommercenotify.php:245
+#: arkcommercenotify.php:275
+msgid "ArknPay Order"
+msgstr ""
+
+#: arkcommercenotify.php:55 arkcommercenotify.php:85
+msgid "Filled"
+msgstr ""
+
+#: arkcommercenotify.php:65
+msgid "ArknPay Order Filled"
+msgstr ""
+
+#: arkcommercenotify.php:88 arkcommercenotify.php:188 arkcommercenotify.php:278
+msgid "The order number"
+msgstr ""
+
+#: arkcommercenotify.php:88 arkcommercenotify.php:188 arkcommercenotify.php:278
+msgid "with order total"
+msgstr ""
+
+#: arkcommercenotify.php:88
+msgid "has been paid in full to store wallet address"
+msgstr ""
+
+#: arkcommercenotify.php:92 arkcommercenotify.php:192 arkcommercenotify.php:282
+msgid "Order placed at block"
+msgstr ""
+
+#: arkcommercenotify.php:94
+msgid "Order filled at block"
+msgstr ""
+
+#: arkcommercenotify.php:96
+msgid "Order transaction ID"
+msgstr ""
+
+#: arkcommercenotify.php:98
+msgid ""
+"This WooCommerce order status is now complete. The button below links to the "
+"ARK Blockchain Explorer web application displaying the details of this "
+"transaction"
+msgstr ""
+
+#: arkcommercenotify.php:107
+msgid "Transaction"
+msgstr ""
+
+#: arkcommercenotify.php:115 arkcommercenotify.php:207
+#: arkcommercenotify.php:299
+msgid "Thank you for choosing ArknPay"
+msgstr ""
+
+#: arkcommercenotify.php:149
+msgid "This order expires at block"
+msgstr ""
+
+#: arkcommercenotify.php:152
+msgid "This order does not expire"
+msgstr ""
+
+#: arkcommercenotify.php:155 arkcommercenotify.php:185
+msgid "Placed"
+msgstr ""
+
+#: arkcommercenotify.php:165
+msgid "ArknPay Order Placed"
+msgstr ""
+
+#: arkcommercenotify.php:188
+msgid "has been placed"
+msgstr ""
+
+#: arkcommercenotify.php:196
+msgid ""
+"This WooCommerce order status is now on hold and ARK blockchain is currently "
+"being queried for a customer transaction fulfilling it. As soon as such a "
+"transaction is detected the order status will change to complete"
+msgstr ""
+
+#: arkcommercenotify.php:245 arkcommercenotify.php:275
+msgid "Expired"
+msgstr ""
+
+#: arkcommercenotify.php:255
+msgid "ArknPay Order Expired"
+msgstr ""
+
+#: arkcommercenotify.php:278
+msgid "has expired"
+msgstr ""
+
+#: arkcommercenotify.php:284
+msgid "Order expired at block"
+msgstr ""
+
+#: arkcommercenotify.php:286 includes/class-wc-arknpay-api.php:264
+msgid "Current block height"
+msgstr ""
+
+#: arkcommercenotify.php:288
+msgid "This WooCommerce order status is now cancelled"
+msgstr ""
+
+#: arkcommerce.php:57
+msgid "Biminutely"
+msgstr ""
+
+#: arkcommerce.php:62
+msgid "Minutely"
+msgstr ""
+
+#: arkcommerce.php:142
+msgid "ARK Payment"
+msgstr ""
+
+#: arkcommerce.php:145
+msgid ""
+"Pay for your purchase with ARK crypto currency by making a direct "
+"transaction to the ARK wallet address of the store."
+msgstr ""
+
+#: arkcommerce.php:148
+msgid ""
+"Please carry out the ARK transaction using the supplied data. Be aware of "
+"the ARK network fee (0.1 ARK) and do not use an exchange wallet for the "
+"transaction."
+msgstr ""
+
+#: arkcommerce.php:305
+msgid "Enable/Disable"
+msgstr ""
+
+#: arkcommerce.php:307
+msgid ""
+"Turn on ArknPay payment gateway to offer it to customers on checkout."
+msgstr ""
+
+#: arkcommerce.php:308
+msgid "Enable ARK Payments"
+msgstr ""
+
+#: arkcommerce.php:312 woocommerce-woo-arknpay.php:275
+msgid "ARK Wallet Address"
+msgstr ""
+
+#: arkcommerce.php:314
+msgid "The ARK wallet address to be used for payments to his store."
+msgstr ""
+
+#: arkcommerce.php:318
+msgid "ARK Node Address"
+msgstr ""
+
+#: arkcommerce.php:320
+msgid ""
+"IP address or the hostname of an ARK Mainnet node used to query the "
+"blockchain. If port is left out, the plugin uses either 443 for https or 80 "
+"for http connections. For directly accessible nodes the default port is 4001 "
+"and without https encryption."
+msgstr ""
+
+#: arkcommerce.php:324
+msgid "Connection Encryption"
+msgstr ""
+
+#: arkcommerce.php:326
+msgid "Turn on https encrypted communication with ARK/DARK Node API."
+msgstr ""
+
+#: arkcommerce.php:327
+msgid "Https encrypted/http unencrypted ARK/DARK Node Communication"
+msgstr ""
+
+#: arkcommerce.php:331
+msgid "DARK Mode (sandbox)"
+msgstr ""
+
+#: arkcommerce.php:333
+msgid ""
+"DARK Mode is for testing purposes only; when it is enabled, ArknPay "
+"connects to the ARK Devnet blockchain and uses the supplied DARK wallet "
+"address."
+msgstr ""
+
+#: arkcommerce.php:334
+msgid "Enable DARK Mode (for testing purposes only)"
+msgstr ""
+
+#: arkcommerce.php:338
+msgid "DARK Node Address"
+msgstr ""
+
+#: arkcommerce.php:340
+msgid ""
+"IP address or the hostname of an ARK Devnet node used to query the "
+"blockchain. If port is left out, the plugin uses either 443 for https or 80 "
+"for http connections. For directly accessible nodes the default port is 4002 "
+"and without https encryption."
+msgstr ""
+
+#: arkcommerce.php:344
+msgid "DARK Wallet Address"
+msgstr ""
+
+#: arkcommerce.php:346
+msgid "The DARK wallet address to be used for payment testing in DARK Mode."
+msgstr ""
+
+#: arkcommerce.php:360
+msgid "Error in ARK Address formatting."
+msgstr ""
+
+#: arkcommerce.php:374
+msgid "Error in DARK Address formatting."
+msgstr ""
+
+#: arkcommerce.php:449 arkcommerce.php:468
+msgid ""
+"Awaiting initial ARK transaction check for the order. Current block height"
+msgstr ""
+
+#: arkcommerce.php:449
+msgid "The order does not expire."
+msgstr ""
+
+#: arkcommerce.php:468
+msgid "This order expires at block height:"
+msgstr ""
+
+#: arkcommerce.php:487
+msgid ""
+"Error: ARK currency conversion service unresponsive, please try again later."
+msgstr ""
+
+#: arkcommerce.php:490
+msgid "ArknPay ARK currency conversion error."
+msgstr ""
+
+#: arkcommerce.php:498
+msgid "Error: ARK network unresponsive, please try again later."
+msgstr ""
+
+#: arkcommerce.php:501 includes/class-wc-arknpay-api.php:275
+msgid "ARK network unresponsive or unreachable."
+msgstr ""
+
+#: arkcommerce.php:510
+msgid "Error: ARK payment gateway order queue full, please try again later."
+msgstr ""
+
+#: arkcommerce.php:513
+msgid "ArknPay open order queue full."
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:105
+msgid "110 blocks (cca 15 min)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:106
+msgid "225 blocks (cca 30 min)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:107
+msgid "450 blocks (cca 60 min)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:108
+msgid "900 blocks (cca 2 hours)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:109
+msgid "1800 blocks (cca 4 hours)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:110
+msgid "3600 blocks (cca 8 hours)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:111
+msgid "5400 blocks (cca 12 hours)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:112
+msgid "10800 blocks (cca 24 hours)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:113
+msgid "75600 blocks (cca 7 days)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:114
+msgid "151200 blocks (cca 2 weeks)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:115
+msgid "324000 blocks (cca 1 month)"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:239
+msgid "ARK order filled at block:"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:252 includes/class-wc-arknpay-api.php:258
+msgid "ARK transaction check yields no matches. Current block height"
+msgstr ""
+
+#: includes/class-wc-arknpay-api.php:264
+msgid "ARK order expired at block height:"
+msgstr ""
+
+#: woocommerce-woo-arknpay.php:216 woocommerce-woo-arknpay.php:247
+msgid "Total"
+msgstr ""
+
+#: woocommerce-woo-arknpay.php:275
+msgid "ARK Total"
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:50 includes/widgets/class-wc-arknpay-faq-widget.php:120
+msgid "ArknPay FAQ"
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:65
+msgid "Frequenty Asked Questions"
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:70
+msgid "What is ARK?"
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:73
+msgid ""
+"ARK is a crypto currency that provides users, developers, and startups with "
+"innovative blockchain technologies. Its aim is to create an entire ecosystem "
+"of linked chains and a virtual spiderweb of endless use-cases that make ARK "
+"highly flexible, adaptable, and scalable."
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:76
+msgid "Why are ARK prices changing?"
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:79
+msgid ""
+"The store originally prices items in fiat currency and uses automatic "
+"exchange rate synchronisation that executes biminutely updates and applies "
+"the updated exchange rate on page loads. This makes their conversion into "
+"ARK prices reflect exchange rate changes."
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:82
+msgid "Why mustn't I use an exchange wallet?"
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:85
+msgid ""
+"Because none of the exchanges allow users to enter anything into the "
+"SmartBridge field, whereas this store necessitates order number reference "
+"entry that enables automatic transaction discovery and order processing by "
+"the system."
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:88
+msgid "What is order expiry?"
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:91
+msgid ""
+"The store can set up an order expiry period within which customers must "
+"execute the ARK payment transaction for their orders, otherwise they get "
+"cancelled. This feature serves as a risk management mechanism protecting "
+"against crypto currency market volatility."
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:94
+msgid "How do I carry out an ARK transaction?"
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:97
+msgid ""
+"Use the ARK Online or ARK Desktop or ARK Mobile wallets to do so. When "
+"making a transaction simply follow the instructions provided both upon order "
+"placement and inside the order confirmation email. They include store wallet "
+"address, SmartBridge reference and the amount total."
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:100
+msgid "I paid for my order and got no response!"
+msgstr ""
+
+#: includes/widgets/class-wc-arknpay-faq-widget.php:103
+msgid ""
+"There may be an error storeside that caused automatic order transaction "
+"discovery and order processing to fail. Do not hesitate to request "
+"assistance via store support channel with your Transaction ID so they are "
+"able to manually verify the payment."
+msgstr ""
