@@ -29,7 +29,7 @@ function arkcommerce_generate_qr_code()
 	
 	// Adhere to the proper ARK QR code format
 	$storewalletaddress = ( '{"a":"' . Arkpay_API_Client::getInstance()->get_wallet_address() . '"}' );
-	var_dump($storewalletaddress);
+
 	// Execute the external PHP QR Code Generator
 	if( $storewalletaddress != null ) QRcode::png( $storewalletaddress, $filepath, "L", 8, 1, $backcolor, $forecolor);
 }
@@ -108,7 +108,11 @@ function arkcommerce_get_exchange_rate()
 		if( $arkgatewaysettings['arkexchangetype'] == 'autorate' ) $arkexchangerate = $arkgatewaysettings['arkexchangerate'];
 		elseif( $arkgatewaysettings['arkexchangetype'] == 'multirate' ) $arkexchangerate = ( $arkgatewaysettings['arkexchangerate'] / $arkgatewaysettings['arkmultiplier'] );
 		elseif( $arkgatewaysettings['arkexchangetype'] == 'fixedrate' ) $arkexchangerate = $arkgatewaysettings['arkmanual'];
-	}
+    }
+    
+    if (empty($arkexchangerate)) {
+        $arkexchangerate = Arkpay_API_Client::getInstance()->get_exchange_rate( $currency = 'ark', $base = 'usd' );
+    }
 	// Return exchange rate
 	return $arkexchangerate;
 }
@@ -123,7 +127,7 @@ function arkcommerce_conversion_into_ark( $amount )
 	// Gather and/or set variables
 	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 	$store_currency = get_woocommerce_currency();
-	$arkexchangerate = arkcommerce_get_exchange_rate();
+    $arkexchangerate = arkcommerce_get_exchange_rate();
 	
 	// Check for supported currency
 	$currency_supported = arkcommerce_check_currency_support();

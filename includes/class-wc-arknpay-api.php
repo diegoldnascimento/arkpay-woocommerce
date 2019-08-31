@@ -164,7 +164,7 @@ function arkpay_update_exchange_rate()
 	$store_currency = get_woocommerce_currency();
 
     $arkexchangerate = Arkpay_API_Client::getInstance()->get_exchange_rate( 'ARK',  $store_currency );
-    
+
 	$arkgatewaysettings['arkexchangerate'] = $arkexchangerate;
 	update_option( 'woocommerce_ark_gateway_settings', $arkgatewaysettings );
 }

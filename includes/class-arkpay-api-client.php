@@ -132,6 +132,9 @@ class Arkpay_API_Client {
 	 */
     public function get_peer() {
         $length = count($this->_peers[ $this->_network ]);
+
+        if ($length === 0) return false;
+         
         return $this->_peers[ $this->_network ][rand(0, $length - 1)];
     }
 
@@ -142,6 +145,9 @@ class Arkpay_API_Client {
 	 */
 
     public function build_peer_url( $peer ) {
+        if (empty($peer)) {
+            return false;
+        }
         return "{$peer->protocol}://{$peer->ip}:{$peer->port}";
     }
 
