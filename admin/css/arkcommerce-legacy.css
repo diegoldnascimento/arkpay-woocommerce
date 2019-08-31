@@ -45,7 +45,7 @@
 
 .arkcommerce-table {
     width: 100%;
-	border: 1px solid #4ab6ff;
+	border: 1px solid #202126;
 	border-width: 1px;
 	border-radius: 4px;
 }
@@ -74,10 +74,10 @@
 
 .arkcommerce-table th,
 .arkcommerce-table td {
-    padding: 2px;
-    border: 1px solid #cccccc;
-	border-color: #eeeeee;
-	text-align: center;
+    padding: 5px;
+    /* border: 1px solid #cccccc; */
+    border-color: #eeeeee;
+    text-align: center;
 }
 
 .arkcommerce-meta-table {

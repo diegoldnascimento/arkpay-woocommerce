@@ -22,7 +22,7 @@ https://github.com/Spikarija/ArknPay/blob/master/UI%20testing/01%20-%20WordPress
 
 **Screenshot 2: WordPress Cron Scheduled Tasks View**
 
-Displayed using a plugin; top two entries are created, scheduled and start running upon plugin activation: arkcommerce_validation_worker checks the database for open orders made via ArknPay and does so every minute; arkcommerce_update_exchange_rate updates the exchange rate for whatever default store currency is chosen (if supported) and does so every two minutes; in case the chosen currency is unsupported by coinmarketcap.com the plugin outputs a warning about admin having to set a fixed exchange rate. Notice that WP-Cron is disabled; standard operation triggers lookups for scheduled tasks upon page loads, which is not reliable, therefore it is imperative to use crontab to periodically trigger execution but more on that later.
+Displayed using a plugin; top two entries are created, scheduled and start running upon plugin activation: arkcommerce_validation_worker checks the database for open orders made via ArknPay and does so every minute; arkpay_update_exchange_rate updates the exchange rate for whatever default store currency is chosen (if supported) and does so every two minutes; in case the chosen currency is unsupported by coinmarketcap.com the plugin outputs a warning about admin having to set a fixed exchange rate. Notice that WP-Cron is disabled; standard operation triggers lookups for scheduled tasks upon page loads, which is not reliable, therefore it is imperative to use crontab to periodically trigger execution but more on that later.
 
 https://github.com/Spikarija/ArknPay/blob/master/UI%20testing/02%20-%20WordPress%20Cron%20Scheduled%20Tasks%20View.png
 

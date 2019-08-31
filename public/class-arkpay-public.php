@@ -55,14 +55,8 @@ class Arkpay_Public {
 	public function __construct( $plugin_name, $version ) {
 		$this->plugin_name = $plugin_name;
         $this->version = $version;
-        $this->api_client = new Arkpay_API_Client();
-        $this->api_client->get_wallet_balance( get_option('arkpay_mainnet_wallet') );
-        $this->api_client->get_transactions(10);
-        $this->api_client->get_block_height();
-        $this->api_client->get_block_height('5a21b020fe21abba11959d76b6cadc2de5d413313251ba3e48557d0423f68812');
-        // get_woocommerce_currency()
-        $r = $this->api_client->get_exchange_rate('ark', 'brl');
-        // var_dump($r);
+        $this->api_client = Arkpay_API_Client::getInstance();
+        // $this->api_client->get_wallet_balance( get_option('arkpay_mainnet_wallet') );
     }
 
 	/**

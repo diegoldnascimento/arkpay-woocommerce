@@ -33,22 +33,11 @@ if( !in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
 function wc_arknpay_gateway_plugin_links( $links ) {
 	// List of links added to plugin entry
-	$plugin_links = array( '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=checkout&section=ark_gateway' ) . '">' . __( 'Settings', 'arkcommerce' ) . '</a>', '<a href="' . admin_url( 'admin.php?page=arknpay_preferences' ) . '">' . __( 'Preferences', 'arkcommerce' ) . '</a>');
+	$plugin_links = array( '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=arkpay' ) . '">' . __( 'Settings', 'arkcommerce' ) . '</a>', '<a href="' . admin_url( 'admin.php?page=arknpay_preferences' ) . '">' . __( 'Preferences', 'arkcommerce' ) . '</a>');
     return array_merge( $plugin_links, $links );
 }
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'wc_arknpay_gateway_plugin_links' );
 
-
-//////////////////////////////////////////////////////////////////////////////////////////
-// Load Plugin Textdomain 'arkcommerce'	Which Allows for Gettext-based Lcalisation		//
-// PLUGIN_DIR//languages/arkcommerce.pot is the main template file						//
-//////////////////////////////////////////////////////////////////////////////////////////
-function arkcommerce_load_textdomain() 
-{
-	// Textdomain is arkcommerce
-	load_plugin_textdomain( 'arkcommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
-}
-add_action( 'plugins_loaded', 'arkcommerce_load_textdomain' );
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // Add wp_cron Minutely and Biminutely Interval Schedules								//
@@ -132,14 +121,9 @@ function arkcommerce_activation()
 	// Add ArknPay DARK Node hostname to options array (standard relay node)
 	if( empty( $arkgatewaysettings['darknode'] ) ) $arkgatewaysettings['darknode'] = 'darknode.arkcommerce.net';
 	
-	// Add ArknPay ARK/DARK encrypted communication flag to options array
-	if( empty( $arkgatewaysettings['nodeencryption'] ) ) $arkgatewaysettings['nodeencryption'] = 'yes';
-	
 	// Add ArknPay DARK Mode option to options array
 	if( empty( $arkgatewaysettings['darkmode'] ) ) $arkgatewaysettings['darkmode'] = '';
-	
-	// Add ArknPay store ARK wallet address to options array
-	if( empty( $arkgatewaysettings['arkaddress'] ) ) $arkgatewaysettings['arkaddress'] = '';
+
 	
 	// Add ArknPay store DARK wallet address to options array
 	if( empty( $arkgatewaysettings['darkaddress'] ) ) $arkgatewaysettings['darkaddress'] = '';
@@ -151,7 +135,7 @@ function arkcommerce_activation()
 	if( empty( $arkgatewaysettings['description'] ) ) $arkgatewaysettings['description'] = __( 'Pay for your purchase with ARK crypto currency by making a direct transaction to the ARK wallet address of the store.', 'arkcommerce' );
 	
 	// Add ArknPay order instructions to options array
-	if( empty( $arkgatewaysettings['instructions'] ) ) $arkgatewaysettings['instructions'] = __( 'Please carry out the ARK transaction using the supplied data. Be aware of the ARK network fee (0.1 ARK) and do not use an exchange wallet for the transaction.', 'arkcommerce' );
+	if( empty( $arkgatewaysettings['instructions'] ) ) $arkgatewaysettings['instructions'] = __( 'Please carry out the ARK transaction using the supplied data. Do not use an exchange wallet for the transaction.', 'arkcommerce' );
 	
 	// Add ArknPay service status to options array
 	if( empty( $arkgatewaysettings['arkservice'] ) ) $arkgatewaysettings['arkservice'] = 0;
@@ -199,7 +183,6 @@ function arkcommerce_upgrade_plugin_once()
 	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 		
 	// Remove deprecated ArknPay Node-related settings from the options array
-	unset( $arkgatewaysettings['nodeapikey'] );
 	unset( $arkgatewaysettings['darkapikey'] );
 	unset( $arkgatewaysettings['arkapikey'] );
 	unset( $arkgatewaysettings['arkusername'] );
@@ -213,9 +196,6 @@ function arkcommerce_upgrade_plugin_once()
 	
 	// Add ArknPay DARK Node hostname to options array (standard relay node)
 	$arkgatewaysettings['darknode'] = 'darknode.arkcommerce.net';
-	
-	// Add ArknPay ARK/DARK encrypted communication flag to options array
-	$arkgatewaysettings['nodeencryption'] = 'yes';
 	
 	// Record updated settings
 	update_option( 'woocommerce_ark_gateway_settings', $arkgatewaysettings );
@@ -288,7 +268,6 @@ function arkcommerce_gateway_init()
 			$this->darkaddress				= $this->get_option( 'darkaddress' );
 			$this->arknode					= $this->get_option( 'arknode' );
 			$this->darknode					= $this->get_option( 'darknode' );
-			$this->nodeencryption			= $this->get_option( 'nodeencryption' );
 			$this->darkmode					= $this->get_option( 'darkmode' );
 			$this->arkservice				= $this->get_option( 'arkservice' );
 			$this->instructions				= $this->get_option( 'instructions', $this->description );
@@ -339,13 +318,6 @@ function arkcommerce_gateway_init()
 					'type'			=> 'text',
 					'description'	=> __( 'IP address or the hostname of an ARK Mainnet node used to query the blockchain. If port is left out, the plugin uses either 443 for https or 80 for http connections. For directly accessible nodes the default port is 4001 and without https encryption.', 'arkcommerce' ),
 					'default'		=> 'api.arkcommerce.net',
-					'desc_tip'		=> true, ),
-				'nodeencryption'	=> array(
-					'title'			=> __( 'Connection Encryption', 'arkcommerce' ),
-					'type'			=> 'checkbox',
-					'description'	=> __( 'Turn on https encrypted communication with ARK/DARK Node API.', 'arkcommerce' ),
-					'label'			=> __( 'Https encrypted/http unencrypted ARK/DARK Node Communication', 'arkcommerce' ),
-					'default'		=> 'no',
 					'desc_tip'		=> true, ),
 				'darkmode' 			=> array(
 					'title'			=> __( arknpay_get_bridgechain_testnet_name() . ' Mode (sandbox)', 'arkcommerce' ),
@@ -404,10 +376,10 @@ function arkcommerce_gateway_init()
 			if( isset( $settings) )
 			{
 				// Sanitize ARK wallet address
-				if( isset( $settings['arkaddress'] ) ) $settings['arkaddress'] = sanitize_text_field( trim( $settings['arkaddress'] ) );
+				if( isset( $settings['arkaddress'] ) ) $settings['arkaddress'] = sanitize_text_field( trim( Arkpay_API_Client::getInstance()->get_wallet_address() ) );
 				
 				// Sanitize DARK wallet address
-				if( isset( $settings['darkaddress'] ) ) $settings['darkaddress'] = sanitize_text_field( trim( $settings['darkaddress'] ) );
+				if( isset( $settings['darkaddress'] ) ) $settings['darkaddress'] = sanitize_text_field( trim( Arkpay_API_Client::getInstance()->get_wallet_address() ) );
 			}
 			// Return sanitized array
 			return $settings;
@@ -427,10 +399,10 @@ function arkcommerce_gateway_init()
 			$ark_neworder_data = $order->get_data();
 			$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 			$ark_neworder_currency = get_woocommerce_currency();
-			$api_client = new Arkpay_API_Client();
+			$api_client = Arkpay_API_Client::getInstance();
             $arkblockheight = $api_client->get_block_height();
 			$arkexchangerate = arkcommerce_get_exchange_rate();
-			$storewalletaddress = $arkgatewaysettings['arkaddress'];
+			$storewalletaddress = $api_client->get;
 			
 			// Check for max open order count
 			if( intval( $arkopenorders ) <= 48 )

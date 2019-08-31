@@ -6,7 +6,7 @@
  * @link       https://arknpay.io/
  * @since      1.0.0
  *
- * @package    ArknPay
+ * @package    Ark Pay
  * @subpackage ArknPay/admin
  */
 
@@ -14,7 +14,7 @@
  * The admin-specific functionality of the plugin.
  *
  *
- * @package    ArknPay
+ * @package    Ark Pay
  * @subpackage ArknPay/admin
  * @author     Ark Gateway
  */
@@ -51,6 +51,8 @@ class Arkpay_Admin {
 
         add_filter( 'woocommerce_get_settings_pages', array( $this, 'arknpay_add_settings' ), 15 );
         add_filter( 'plugin_action_links', array( $this, 'get_action_links' ), 10, 2 );
+        
+        $this->arknpay_add_notices();
 	}
 
 	/**
@@ -59,7 +61,9 @@ class Arkpay_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/arkpay-admin.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/arkpay-admin.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name . '-arcommerce-legacy', plugin_dir_url( __FILE__ ) . 'css/arkcommerce-legacy.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name . '-arcommerce-wordpress-legacy', plugin_dir_url( __FILE__ ) . 'css/arkcommerce-wp-legacy.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -80,6 +84,16 @@ class Arkpay_Admin {
 		require_once plugin_dir_path( __FILE__ ) . 'class-wc-arkpay-settings.php';
 		return new WC_Settings_Arkpay();
     }
+
+    /**
+	 * Create settings tab in Woocommerce settings 
+	 *
+	 * @since    1.0.0
+	 */
+	public function arknpay_add_notices() {
+		require_once plugin_dir_path( __FILE__ ) . 'class-arkpay-notice.php';
+		return new ArkPay_Notice();
+    }
     
     /**
 	 * Create extra action links to Plugin settings
@@ -92,7 +106,7 @@ class Arkpay_Admin {
 
         if( $base[0] === $file[0] ) {
             $extraLinks = array(
-                sprintf('<a href="%s">%s</a>', admin_url( 'admin.php?page=wc-settings&tab=ArknPay' ), __( 'Settings', 'ArknPay' ))
+                sprintf('<a href="%s">%s</a>', admin_url( 'admin.php?page=wc-settings&tab=arkpay' ), __( 'Settings', 'arkpay' ))
             );
             $links = array_merge($links, $extraLinks);
         }

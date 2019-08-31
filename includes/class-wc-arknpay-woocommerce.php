@@ -265,13 +265,10 @@ function arkcommerce_order_data_content( $order_id, $arkprice )
 	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 	$store_currency = get_woocommerce_currency();
 	$timeout = arkcommerce_get_order_timeout();
-	
-	// DARK Mode settings
-	if( $arkgatewaysettings['darkmode'] == 'yes' ) $storewalletaddress = $arkgatewaysettings['darkaddress'];
-	else $storewalletaddress = $arkgatewaysettings['arkaddress'];
+	$storewalletaddress = Arkpay_API_Client::getInstance()->get_wallet_address();
 
 	// Include the QR Code of store ARK wallet address and form a table containing the store ARK address, order number, and amount total
-	$qrcode = sprintf( '<hr><table><tr><th><img alt="QRCODE" width="130" height="130" src="%s"></th><td>%s</td></tr></table><hr>', ( plugin_dir_url( __FILE__ ) . '/../../assets/images/qrcode.png' ), wptexturize( $arkgatewaysettings['instructions'] ) );
+	// $qrcode = sprintf( '<hr><table><tr><th><img alt="QRCODE" width="130" height="130" src="%s"></th><td>%s</td></tr></table><hr>', ( plugin_dir_url( __FILE__ ) . '/../../assets/images/qrcode.png' ), wptexturize( $arkgatewaysettings['instructions'] ) );
     $arktable = sprintf( '<table><tr><th><b>' . __( 'ARK Wallet Address', 'arkcommerce' ) . '</b></th><td>%s</td></tr><tr><th><b>SmartBridge</b></th><td>%s</td></tr><tr><th><b>' . __( 'ARK Total', 'arkcommerce' ) . '</b></th><td>Ѧ%s</td></tr><tr><th><b>' . __( 'Order Expiry', 'arkcommerce' ) . '</b></th><td>%s</td></tr></table><hr>', $storewalletaddress, $order_id, $arkprice, $timeout );
     $payButton = sprintf('<div><a href="ark:%s?amount=%s&amp;vendorField=%s" class="btn btn-primary btn-sm">Pay Now with Ark Wallet</a></div>', $storewalletaddress, $arkprice, $order_id);	
 				

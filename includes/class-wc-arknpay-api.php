@@ -3,35 +3,6 @@
 // Prohibit direct access
 if( !defined( 'ABSPATH' ) ) exit;
 
-class WP_ArknPay_API {
-    const MAINNET_EXPLORER      = 'https://explorer.ark.io/tx/';
-    const TESTNET_EXPLORER      = 'https://dexplorer.ark.io/tx/';
-    
-    public $arkgatewaysettings;
-    private $api = null;
-
-    public function constructor() {
-        $this->arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
-    }
-
-    public function request($endpoint) {
-        $arknodetxresponse = wp_remote_get( $ark_txquery );
-	
-        // API response
-        if( !is_wp_error($arknodetxresponse) ) {
-            $arktxresponse = json_decode( $arknodetxresponse['body'], true );
-
-            // Validate response
-            
-            if ( count($arktxresponse['data']) > 0 ) {
-                $api_client = new Arkpay_API_Client();
-                $arktxblockheight = $api_client->get_block_height($arktxresponse['data']['blockId']);
-            }
-            //if( $arktxresponse['success'] === true ) $arktxblockheight = $arktxresponse['transaction']['height'];
-        } 
-    }
-}
-
 //////////////////////////////////////////////////////////////////////////////////////////
 // Function Checking for Order Payment Fulfillment, Handling and Notification			//
 // @param int $order_id																	//
@@ -45,16 +16,14 @@ function arkcommerce_ark_transaction_validation( $order_id )
 	$order = wc_get_order( $order_id );
 	$ark_order_data = $order->get_data();
 	$ark_order_id = $ark_order_data['id'];
-	$api_client = new Arkpay_API_Client();
+	$api_client = Arkpay_API_Client::getInstance();
     $arkblockheight = $api_client->get_block_height();
 	$ark_arktoshi_total = $order->get_meta( $key = 'ark_arktoshi_total' );
 	$arkorderblock = $order->get_meta( $key = 'ark_order_block' );
 	$arkorderexpiryblock = $order->get_meta( $key = 'ark_expiration_block' );
 	$storewalletaddress = $order->get_meta( $key = 'ark_store_wallet_address' );
 	
-	// Encryption flag and URI prefix
-	if( $arkgatewaysettings['nodeencryption'] = 'yes' ) $arknodeprefix = 'https://';
-	else $arknodeprefix = 'http://';
+	$arknodeprefix = 'https://';
 	
 	// DARK Mode settings
 	if( $arkgatewaysettings['darkmode'] == 'yes' ) 
@@ -68,13 +37,13 @@ function arkcommerce_ark_transaction_validation( $order_id )
 		$explorerurl = 'https://explorer.ark.io/tx/';
 	}
     // Validate the order is on hold and the chosen payment method is ArknPay
-    //var_dump();
+    
     $payment_gateway = wc_get_payment_gateway_by_order( $order );
 
 	if( $order->has_status( 'on-hold' ) && 'ark_gateway' === $payment_gateway->id ) 
 	{
 		// Fetch last 50 transactions into store wallet
-        $arktxrecordarray = arknpay_fetch_transactions( 50 );
+        $arktxrecordarray = $api_client->get_transactions( 50 );
        //  var_dump($arktxrecordarray);
 		
 		if( is_array( $arktxrecordarray ) && $arkblockheight !=0 ) 
@@ -105,15 +74,15 @@ function arkcommerce_ark_transaction_validation( $order_id )
                         // Validate response
                         
                         if ( count($arktxresponse['data']) > 0 ) {
-                            $api_client = new Arkpay_API_Client();
+                            $api_client = Arkpay_API_Client::getInstance();
                             $arktxblockheight = $api_client->get_block_height($arktxresponse['data']['blockId']);
-                            var_dump($arktxblockheight);
+       
                             var_dump($arktxresponse['data']['blockId']);
                             
                         }
 						//if( $arktxresponse['success'] === true ) $arktxblockheight = $arktxresponse['transaction']['height'];
                     }
-                    var_dump($arktxblockheight);
+                
 					// Validate found TX block height is higher or equal to blockchain block height at the time order was made and the order has not expired at that time
 					if( $arkorderexpiryblock != 'never' && intval( $arktxblockheight ) <= intval( $arkorderexpiryblock ) && intval( $arktxblockheight ) >= intval( $arkorderblock ) ) 
 					{
@@ -131,8 +100,8 @@ function arkcommerce_ark_transaction_validation( $order_id )
 						$ark_transaction_block = $arktxblockheight;
 					}
 				}
-			endforeach;
-			var_dump($ark_transaction_found);
+            endforeach;
+        
 			// Payment TX found and it occurred after the order had been committed
 			if( $ark_transaction_found === true ) 
 			{
@@ -180,52 +149,23 @@ function arkcommerce_ark_transaction_validation( $order_id )
 		update_option( 'woocommerce_ark_gateway_settings', $arkgatewaysettings );
 	}
 }
-//////////////////////////////////////////////////////////////////////////////////////////
-// Update Currency Market Exchange Rate Between Chosen Store Fiat and ARK Pairs 		//
-// @record float arkexchangerate														//
-//////////////////////////////////////////////////////////////////////////////////////////
-function arkcommerce_update_exchange_rate() 
+
+
+ /**
+ * Update Currency Market Exchange Rate between chosen store Fiat and ARK Pairs 
+ *
+ * @return float $arkexchangerate
+ */
+
+function arkpay_update_exchange_rate() 
 {
-	// Gather and/or set variables
-	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
+
+    $arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 	$store_currency = get_woocommerce_currency();
-	
-	// Check for supported currency
-	$currency_supported = arkcommerce_check_currency_support();
-	
-	// Currency supported
-	if( $currency_supported === true ) 
-	{
-		// Check if ARK already chosen as main currency
-		if( $store_currency == 'ARK' ) $arkexchangerate = 1;
-		
-		// Query coinmarketcap.com APIv2
-		else 
-		{
-			// Construct a query URI for Coinmarketcap v2 API; expected number of results: 1
-			$cmc_query = "https://api.coinmarketcap.com/v2/ticker/1586/?convert=$store_currency";
-			
-			// Query CoinMarketCap API for ARK market price in supported chosen currency
-			$cmcresponse = wp_remote_get( $cmc_query );
-			
-			// CMC API response validation
-			if( is_array( $cmcresponse) ) 
-			{
-				$arkmarketprice = json_decode( $cmcresponse['body'], true );
-				
-				// Construct a suitable key identifier for in-array lookup
-				$chosen_currency_var = strtoupper( $store_currency );
-				
-				// Determine the exchange rate
-				$arkexchangerate = $arkmarketprice[data][quotes][$chosen_currency_var][price];
-			}
-		}
-	}
-	// Currency not supported
-	else $arkexchangerate = 0;
-	
-	// Update the gateway settings containing the variable 'arkexchangerate'
+
+    $arkexchangerate = Arkpay_API_Client::getInstance()->get_exchange_rate( 'ARK',  $store_currency );
+    
 	$arkgatewaysettings['arkexchangerate'] = $arkexchangerate;
 	update_option( 'woocommerce_ark_gateway_settings', $arkgatewaysettings );
 }
-add_action ( 'arkcommerce_refresh_exchange_rate', 'arkcommerce_update_exchange_rate' );
+add_action ( 'arkcommerce_refresh_exchange_rate', 'arkpay_update_exchange_rate' );

@@ -27,13 +27,9 @@ function arkcommerce_generate_qr_code()
 	$backcolor = 0xFFFFFF;
 	$forecolor = 0x4AB6FF;
 	
-	// DARK Mode settings
-	if( $arkgatewaysettings['darkmode'] == 'yes' ) $storewalletaddress = $arkgatewaysettings['darkaddress'];
-	else $storewalletaddress = $arkgatewaysettings['arkaddress'];
-	
 	// Adhere to the proper ARK QR code format
-	$storewalletaddress = ( '{"a":"' . $storewalletaddress . '"}' );
-	
+	$storewalletaddress = ( '{"a":"' . Arkpay_API_Client::getInstance()->get_wallet_address() . '"}' );
+	var_dump($storewalletaddress);
 	// Execute the external PHP QR Code Generator
 	if( $storewalletaddress != null ) QRcode::png( $storewalletaddress, $filepath, "L", 8, 1, $backcolor, $forecolor);
 }
@@ -46,19 +42,19 @@ function arkcommerce_get_order_timeout()
 	// Gather and/or set variables
 	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 	// Determine order expiry timeout
-    if( $arkgatewaysettings['arktimeout'] == 30 ) $timeout = ( __( '30 blocks (cca 3 min)', 'arkcommerce' ) );
-    elseif( $arkgatewaysettings['arktimeout'] == 55 ) $timeout = ( __( '55 blocks (cca 7.5 min)', 'arkcommerce' ) );
-    elseif( $arkgatewaysettings['arktimeout'] == 110 ) $timeout = ( __( '110 blocks (cca 15 min)', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 225 ) $timeout = ( __( '225 blocks (cca 30 min)', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 450 ) $timeout = ( __( '450 blocks (cca 60 min)', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 900 ) $timeout = ( __( '900 blocks (cca 2 hours)', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 1800 ) $timeout = ( __( '1800 blocks (cca 4 hours)', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 3600 ) $timeout = ( __( '3600 blocks (cca 8 hours)', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 5400 ) $timeout = ( __( '5400 blocks (cca 12 hours)', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 10800 ) $timeout = ( __( '10800 blocks (cca 24 hours)', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 75600 ) $timeout = ( __( '75600 blocks (cca 7 days)', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 151200 ) $timeout = ( __( '151200 blocks (cca 2 weeks)', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 324000 ) $timeout = ( __( '324000 blocks (cca 1 month)', 'arkcommerce' ) );
+    if( $arkgatewaysettings['arktimeout'] == 30 ) $timeout = ( __( '3 min', 'arkcommerce' ) );
+    elseif( $arkgatewaysettings['arktimeout'] == 55 ) $timeout = ( __( '7.5 min', 'arkcommerce' ) );
+    elseif( $arkgatewaysettings['arktimeout'] == 110 ) $timeout = ( __( '15 min', 'arkcommerce' ) );
+	elseif( $arkgatewaysettings['arktimeout'] == 225 ) $timeout = ( __( '30 min', 'arkcommerce' ) );
+	elseif( $arkgatewaysettings['arktimeout'] == 450 ) $timeout = ( __( '60 min', 'arkcommerce' ) );
+	elseif( $arkgatewaysettings['arktimeout'] == 900 ) $timeout = ( __( '2 hours', 'arkcommerce' ) );
+	elseif( $arkgatewaysettings['arktimeout'] == 1800 ) $timeout = ( __( '4 hours', 'arkcommerce' ) );
+	elseif( $arkgatewaysettings['arktimeout'] == 3600 ) $timeout = ( __( '8 hours', 'arkcommerce' ) );
+	elseif( $arkgatewaysettings['arktimeout'] == 5400 ) $timeout = ( __( '12 hours', 'arkcommerce' ) );
+	elseif( $arkgatewaysettings['arktimeout'] == 10800 ) $timeout = ( __( '24 hours', 'arkcommerce' ) );
+	elseif( $arkgatewaysettings['arktimeout'] == 75600 ) $timeout = ( __( '7 days', 'arkcommerce' ) );
+	elseif( $arkgatewaysettings['arktimeout'] == 151200 ) $timeout = ( __( '2 weeks', 'arkcommerce' ) );
+	elseif( $arkgatewaysettings['arktimeout'] == 324000 ) $timeout = ( __( '1 month', 'arkcommerce' ) );
 	elseif( $arkgatewaysettings['arktimeout'] == 'never' ) $timeout = ( __( 'None (order never expires)', 'arkcommerce' ) );
 	
 	// Return the result
@@ -78,7 +74,7 @@ function arkcommerce_validation_worker()
 	
 	// Execute the query
 	$arkorders = $wpdb->get_results( $arkordersquery );
-	//var_dump($arkorders);
+
 	// Determine valid database connection
 	if( !empty( $arkorders ) ) 
 	{

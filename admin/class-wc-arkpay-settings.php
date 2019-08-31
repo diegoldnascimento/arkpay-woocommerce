@@ -69,7 +69,7 @@ if ( ! class_exists( 'WC_Settings_Arkpay' ) ) :
 						'name'     => __( 'Network', 'arkpay' ),
 						'options'  => array(
                             'mainnet'		=> __( 'Mainnet', 'arkpay' ),
-                            'testnet'       => __( 'Testnet', 'arkpay' ),
+                            'devnet'       => __( 'Devnet', 'arkpay' ),
 						),
 						'class'    => 'wc-enhanced-select',
 						'desc_tip' => __( 'Select which network the plugin should use', 'arkpay' ),
@@ -82,21 +82,22 @@ if ( ! class_exists( 'WC_Settings_Arkpay' ) ) :
                         'id'   => 'arkpay_mainnet_wallet',
                         'class' => 'arkpay_mainnet',
 					),
-					array(
+					/*array(
 						'name' => __( 'Ark Node Address', 'arkpay' ),
 						'type' => 'text',
 						'desc_tip' => __( 'IP address or the hostname of an ARK Mainnet node used to query the blockchain. If port is left out, the plugin uses either 443 for https or 80 for http connections. For directly accessible nodes the default port is 4001 and without https encryption.'),
                         'id'   => 'arkpay_mainnet_node',
                         'class' => 'arkpay_mainnet',
                         // 'default' => 'api.arkpay.io',
-                        'default' => 'api.ark.io'
-                    ),
+                        'default' => 'api.ark.io',
+                        'style' => 'display: none'
+                    ), */
                     array(
-						'name' => __( 'Ark Wallet Address (Testnet)', 'arkpay' ),
+						'name' => __( 'Ark Wallet Address (Devnet)', 'arkpay' ),
 						'type' => 'text',
 						'desc_tip' => "<p class='description'>Enter here the wallet that should be used to receive transactions.</p>",
-                        'id'   => 'arkpay_testnet_wallet',
-                        'class' => 'arkpay_testnet',
+                        'id'   => 'arkpay_devnet_wallet',
+                        'class' => 'arkpay_devnet',
 					),
 					/* array(
 						'name' => __( 'Debug Mode', 'arkpay' ),
@@ -138,10 +139,10 @@ if ( ! class_exists( 'WC_Settings_Arkpay' ) ) :
                         'default' => 'https://explorer.ark.io'
                     ),
                     array(
-						'name' => __( 'Explorer Address (Testnet)', 'arkpay' ),
+						'name' => __( 'Explorer Address (Devnet)', 'arkpay' ),
 						'type' => 'text',
 						'desc_tip' => "",
-                        'id'   => 'arkpay_testnet_explorer',
+                        'id'   => 'arkpay_devnet_explorer',
                         'default' => 'https://dexplorer.ark.io/',
                     ),
                     array(
@@ -187,18 +188,6 @@ if ( ! class_exists( 'WC_Settings_Arkpay' ) ) :
 			
 			$settings = $this->get_settings();
 			WC_Admin_Settings::save_fields( $settings );
-        }
-        
-        public function get_network_environment() {
-            return get_option('arkpay_network_select') !== 'testnet' ? 'mainnet' : 'testnet';
-        }
-
-        public function is_network_mainnet() {
-            return $this->get_network_environment() !== 'testnet';
-        }
-
-        public function get_wallet_address() {
-            return $this->is_network_mainnet() ? get_option('arkpay_mainnet_wallet') : get_option('arkpay_testnet_wallet');
         }
 	}
 endif;

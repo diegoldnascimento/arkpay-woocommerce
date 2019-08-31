@@ -32,16 +32,16 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 	// DARK Mode settings
 	if( $arkgatewaysettings['darkmode'] == 'yes' )
 	{
-		$storewalletaddress = $arkgatewaysettings['darkaddress'];
 		$explorerurl = 'https://dexplorer.ark.io/tx/';
 		$exploreraddressurl = 'https://dexplorer.ark.io/address/';
 	}
 	else
 	{
-		$storewalletaddress = $arkgatewaysettings['arkaddress'];
 		$explorerurl = 'https://explorer.ark.io/tx/';
 		$exploreraddressurl = 'https://explorer.ark.io/address/';
-	}
+    }
+    
+    $storewalletaddress = Arkpay_API_Client::getInstance()->get_wallet_address();
 	//Determine the type of message to be sent
 	if( $messagetype == 'orderfilled' && $arkgatewaysettings['arkorderfillednotify'] == 'on' ) 
 	{
@@ -233,7 +233,7 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 	{
         // Establish block height and validate response
         
-        $api_client = new Arkpay_API_Client();
+        $api_client = Arkpay_API_Client::getInstance();
 		$arkblockheight = $api_client->get_block_height();
 		if( $arkblockheight == 0 ) $arkblockheight = 'error';
 		

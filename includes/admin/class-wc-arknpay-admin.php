@@ -53,85 +53,10 @@ add_filter( 'plugin_row_meta',  'wc_arknpay_plugin_meta_links', 10, 2 );
 function arkcommerce_register_styles_scripts() 
 {
 	// CSS for all ArknPay admin styles (administrator-facing)
-	wp_register_style( 'arkcommerce_style', plugin_dir_url( __FILE__ ) . '../../assets/css/arkcommerce.css' );
 	wp_register_script( 'arkcommerce_script', plugin_dir_url( __FILE__ ) . '../../assets/js/arkexplorer.js' );
-	wp_enqueue_style( 'arkcommerce_style' );
 	wp_enqueue_script( 'arkcommerce_script' );
 }
 add_action( 'admin_enqueue_scripts', 'arkcommerce_register_styles_scripts' );
-
-//////////////////////////////////////////////////////////////////////////////////////////
-// Add ArknPay CSS WP Stylesheets													//
-//////////////////////////////////////////////////////////////////////////////////////////
-function arkcommerce_register_wp_styles() 
-{
-	// CSS for all ArknPay WP styles (customer-facing)
-	wp_register_style( 'wp_arkcommerce', plugin_dir_url( __FILE__ ) . '../../assets/css/wp_arkcommerce.css' );
-	wp_enqueue_style( 'wp_arkcommerce' );
-}
-add_action( 'wp_enqueue_scripts', 'arkcommerce_register_wp_styles' );
-
-//////////////////////////////////////////////////////////////////////////////////////////
-// Perform Checks and Display Admin Notifications										//
-// @output ArknPay administrator notices											//
-//////////////////////////////////////////////////////////////////////////////////////////
-function arkcommerce_attention_required() 
-{
-	// Gather and/or set variables
-	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
-	$currency_supported = arkcommerce_check_currency_support();
-	$arkadmurl = admin_url( 'admin.php?page=wc-settings&tab=checkout&section=ark_gateway' );
-	$arkprefurl = admin_url( 'admin.php?page=arknpay_preferences' );
-	$arkinfourl = admin_url( 'admin.php?page=arkcommerce_information' );
-	
-	// Settings check
-	if( $arkgatewaysettings['arkaddress'] == "" && $arkgatewaysettings['enabled'] == "yes" && $currency_supported === true && $arkgatewaysettings['darkmode'] != 'yes' ) 
-	{
-		// Display error notice
-		echo( '<div class="notice notice-error is-dismissible"><p><span class="dashicons-before dashicons-arkcommerce" style="vertical-align:middle;"> </span> <strong><a href="' . $arkadmurl . '">ArknPay</a> ' . __( 'requires your attention for a functioning setup. Please enter a valid ARK Wallet Address or disable ArknPay.', 'arkcommerce' ) . '</strong></p></div>' );
-	}
-	elseif( $currency_supported === false && $arkgatewaysettings['enabled'] == "yes" && $arkgatewaysettings['arkexchangetype'] != 'fixedrate') 
-	{
-		// Display error notice
-		echo( '<div class="notice notice-error is-dismissible"><p><span class="dashicons-before dashicons-arkcommerce" style="vertical-align:middle;"> </span> <strong>' . __( 'Currently selected store currency is not supported in automatic exchange rate mode. Please switch to the fixed exchange rate in', 'arkcommerce' ) . ' <a href="' . $arkprefurl . '">ArknPay ' . __( 'Preferences', 'arkcommerce' ) . '</a>.</strong></p></div>' );
-	}
-	elseif( $currency_supported === false && $arkgatewaysettings['enabled'] == "yes" && $arkgatewaysettings['arkexchangetype'] == 'fixedrate' && empty( $arkgatewaysettings['arkmanual'] ) ) 
-	{
-		// Display error notice
-		echo( '<div class="notice notice-error is-dismissible"><p><span class="dashicons-before dashicons-arkcommerce" style="vertical-align:middle;"> </span> <strong>' . __( 'Currently selected store currency does not have its fixed exchange rate defined, please do so in', 'arkcommerce' ) . ' <a href="' . $arkprefurl . '">ArknPay ' . __( 'Preferences', 'arkcommerce' ) . '</a>.</strong></p></div>' );
-	}
-	elseif( $currency_supported === true && $arkgatewaysettings['enabled'] == "yes" && $arkgatewaysettings['arkexchangetype'] == 'multirate' && empty( $arkgatewaysettings['arkmultiplier'] ) ) 
-	{
-		// Display error notice
-		echo( '<div class="notice notice-error is-dismissible"><p><span class="dashicons-before dashicons-arkcommerce" style="vertical-align:middle;"> </span> <strong>' . __( 'Currently selected store currency exchange rate multiplier has not been defined, please do so in', 'arkcommerce' ) . ' <a href="' . $arkprefurl . '">ArknPay ' . __( 'Preferences', 'arkcommerce' ) . '</a>.</strong></p></div>' );
-	}
-	elseif( $arkgatewaysettings['enabled'] == "no" ) 
-	{		
-		// Display info notice
-		echo( '<div class="notice notice-info is-dismissible"><p><span class="dashicons-before dashicons-arkcommerce" style="vertical-align:middle;"> </span> <strong><a href="' . $arkadmurl . '">ArknPay</a> ' . __( 'payment gateway plugin is currently not enabled. Please configure and enable it or deactivate ArknPay.', 'arkcommerce' ) . '</strong></p></div>' );
-	}
-	elseif( $arkgatewaysettings['darkaddress'] == "" && $arkgatewaysettings['enabled'] == "yes" && $arkgatewaysettings['darkmode'] == 'yes' )
-	{
-		// Display error notice
-		echo( '<div class="notice notice-error is-dismissible"><p><span class="dashicons-before dashicons-arkcommerce" style="vertical-align:middle;"> </span> <strong><a href="' . $arkadmurl . '">ArknPay</a> ' . __( 'requires your attention for a functioning DARK Mode setup. Please enter a valid DARK Wallet Address or disable DARK Mode.', 'arkcommerce' ) . '</strong></p></div>' );
-	}
-	elseif( $currency_supported === true && $arkgatewaysettings['enabled'] == "yes" && !defined('DISABLE_WP_CRON'))
-	{		
-		// Display info notice
-		echo( '<div class="notice notice-info is-dismissible"><p><span class="dashicons-before dashicons-arkcommerce" style="vertical-align:middle;"> </span> <strong> ' . __( 'It is highly recommended turning on "Hard Cron" scheduled task operation. Guides are found in', 'arkcommerce' ) . ' <a href="' . $arkinfourl . '">ArknPay ' . __( 'Information', 'arkcommerce' ) . '</a></strong></p></div>' );
-	}
-	elseif( $arkgatewaysettings['enabled'] == "yes" && $arkgatewaysettings['arkservice'] === 1 ) 
-	{		
-		// Display warning notice
-		echo( '<div class="notice notice-warning is-dismissible"><p><span class="dashicons-before dashicons-arkcommerce" style="vertical-align:middle;"> </span> <strong>ArknPay ' . __( 'ARK network unresponsive or unreachable. Payment gateway service currently unavailable.', 'arkcommerce' ) . '</strong></p></div>' );
-	}
-	elseif( $arkgatewaysettings['enabled'] == "yes" && !empty( $arkgatewaysettings['nodeapikey'] ) &&  ARKNPAY_VERSION == '1.1.0' ) 
-	{		
-		// Display error notice
-		echo( '<div class="notice notice-error is-dismissible"><p><span class="dashicons-before dashicons-arkcommerce" style="vertical-align:middle;"> </span> <strong>ArknPay ' . __( 'ArknPay requires deactivation and reactivation to upgrade properly and resume operation.', 'arkcommerce' ) . '</strong></p></div>' );
-	}
-}
-add_action( 'admin_notices', 'arkcommerce_attention_required' );
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // ArknPay Status Admin Dashboard Widget											//
@@ -146,7 +71,7 @@ function arkcommerce_display_status_widget()
 	$store_currency = get_woocommerce_currency();
 	$arkexchangerate = arkcommerce_get_exchange_rate();
     
-    $api_client = new Arkpay_API_Client();
+    $api_client = Arkpay_API_Client::getInstance();
     $arkblockheight = $api_client->get_block_height();
 	$wallet_balance = $api_client->get_wallet_balance();
 	$arktxarray = $api_client->get_transactions( 10 );
@@ -154,14 +79,15 @@ function arkcommerce_display_status_widget()
 	// DARK Mode settings
 	if( $arkgatewaysettings['darkmode'] == 'yes' )
 	{
-		$storewalletaddress = $arkgatewaysettings['darkaddress'];
 		$explorerurl = 'https://dexplorer.ark.io/';
 	}
 	else
 	{
-		$storewalletaddress = $arkgatewaysettings['arkaddress'];
 		$explorerurl = 'https://explorer.ark.io/';
-	}
+    }
+    
+    $storewalletaddress = $api->get_wallet_address();
+
 	// Validate block height response
 	if( $arkblockheight != 0 ) echo( '<span class="dashicons dashicons-info" style="color:lime;"> </span> <b style="color:black;">' . __( 'ArknPay operational', 'arkcommerce' ) . '. ' . __( 'ARK block height', 'arkcommerce' ) . ': ' . $arkblockheight . '</b>' );
 	else echo( '<span class="dashicons dashicons-info" style="color:red;"> </span> <b style="color:black;">' . __( 'ARK network unresponsive or unreachable', 'arkcommerce' ) . '.</b>' ); 
@@ -233,15 +159,15 @@ function arkcommerce_display_tx_check_widget()
 	// DARK Mode settings and display DARK Mode info (if enabled)
 	if( $arkgatewaysettings['darkmode'] == 'yes' )
 	{
-		$storewalletaddress = $arkgatewaysettings['darkaddress'];
 		$explorerurl = 'https://dexplorer.ark.io/';
 		$displaydarkinfo = ( '<span class="dashicons dashicons-info" style="color:black;"> </span> <b>' . __( 'ArknPay DARK Mode enabled', 'arkcommerce' ) . '</b>.<hr>' );
 	}
 	else
 	{
-		$storewalletaddress = $arkgatewaysettings['arkaddress'];
 		$explorerurl = 'https://explorer.ark.io/';
-	}
+    }
+    
+    $storewalletaddress = Arkpay_API_Client::getInstance()->get_wallet_address();
 	// Display form
 	echo( '<form onsubmit="return false;"><table class="form-table">' . $displaydarkinfo . '<b>' . __( 'Store Wallet', 'arkcommerce' ) . ': <a class=arkcommerce-link" target="_blank" href="' . $explorerurl. 'address/' . $storewalletaddress . '">' . $storewalletaddress . '</a></b><hr><fieldset><legend><span class="dashicons dashicons-admin-links"> </span> <strong>' . __( 'Transaction ID', 'arkcommerce' ) . '</strong></legend><input type="hidden" id="explorerurl" value="' . $explorerurl . 'tx/"><input type="text" style="width:100%;" id="txid_manual_entry"></fieldset><br><input type="button" style="width: 100%;" value="' . __( 'Open in Explorer', 'arkcommerce' ) . '" onclick="' . "ARKExplorer(document.getElementById('explorerurl').value, document.getElementById('txid_manual_entry').value);return false;" . '"></table></form>' );
 }
@@ -254,7 +180,7 @@ function arkcommerce_add_tx_check_widget()
 	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 	
 	// Settings check
-	if( $arkgatewaysettings['arkaddress'] != "" && $arkgatewaysettings['enabled'] == "yes" ) wp_add_dashboard_widget( 'arkcommercemanualtxcheckwidget', __( 'ArknPay Manual TX Check', 'arkcommerce' ), 'arkcommerce_display_tx_check_widget' );
+	if( Arkpay_API_Client::getInstance()->get_wallet_address() != "" && $arkgatewaysettings['enabled'] == "yes" ) wp_add_dashboard_widget( 'arkcommercemanualtxcheckwidget', __( 'ArknPay Manual TX Check', 'arkcommerce' ), 'arkcommerce_display_tx_check_widget' );
 }
 add_action( 'wp_dashboard_setup', 'arkcommerce_add_tx_check_widget' );
 
@@ -267,20 +193,20 @@ function arkcommerce_display_meta_box_widget()
 	// Gather and/or set variables
     $arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 
-    $api_client = new Arkpay_API_Client();
+    $api_client = Arkpay_API_Client::getInstance();
 	$wallet_balance = $api_client->get_wallet_balance();
-	$arktxarray = $api_client->get_transactions( 10 );
+	$arktxarray = $api_client->get_transactions( 10, $wallet_balance );
 	// DARK Mode settings
 	if( $arkgatewaysettings['darkmode'] == 'yes' ) 
 	{
-		$storewalletaddress = $arkgatewaysettings['darkaddress'];
 		$explorerurl = 'https://dexplorer.ark.io/';
 	}
 	else
 	{
-		$storewalletaddress = $arkgatewaysettings['arkaddress'];
 		$explorerurl = 'https://explorer.ark.io/';
-	}
+    }
+
+    $storewalletaddress  = Arkpay_API_Client::getInstance()->get_wallet_address();
 	// Determine whether the ARK/DARK Node has any hits for the store wallet address query
 	if( !empty( $arktxarray[0] ) ) 
 	{
@@ -317,8 +243,8 @@ add_action( 'add_meta_boxes', 'arkcommerce_add_woocommerce_meta_box' );
 function arkcommerce_add_menu_pages() 
 {
     // Add Top-level menu ArknPay
-	add_menu_page(		'ArknPay',
-						'ArknPay',
+	add_menu_page(		'Ark Pay',
+						'Ark Pay',
 						'administrator',
 						'arkcommerce_root',
 						'arkcommerce_navigator',
@@ -326,7 +252,7 @@ function arkcommerce_add_menu_pages()
 	
 	// Add Sub menu ArknPay Navigator page
 	add_submenu_page(	'arkcommerce_root',
-						__( 'ArknPay Dashboard', 'arkcommerce' ),
+						__( 'Ark Pay Dashboard', 'arkcommerce' ),
 						__( 'Dashboard', 'arkcommerce' ),
 						'administrator',
 						'arkcommerce_navigator',
@@ -334,7 +260,7 @@ function arkcommerce_add_menu_pages()
 						    
 	// Add Sub menu ArknPay Preferences page
 	add_submenu_page(	'arkcommerce_root',
-						__( 'ArknPay Preferences', 'arkcommerce' ),
+						__( 'Ark Pay Preferences', 'arkcommerce' ),
 						__( 'Preferences', 'arkcommerce' ),
 						'administrator',
 						'arknpay_preferences',
@@ -342,7 +268,7 @@ function arkcommerce_add_menu_pages()
                         
     // Add Sub menu ArknPay Preferences page
 	add_submenu_page(	'arkcommerce_root',
-                        __( 'ArknPay Settings', 'arkcommerce' ),
+                        __( 'Ark Pay Settings', 'arkcommerce' ),
                         __( 'Settings', 'arkcommerce' ),
                         'administrator',
                         'arknpay_settings',
@@ -350,7 +276,7 @@ function arkcommerce_add_menu_pages()
     
 	// Add Sub menu ArknPay Information page
 	add_submenu_page(	'arkcommerce_root',
-						__( 'ArknPay Information', 'arkcommerce' ),
+						__( 'Ark Pay Information', 'arkcommerce' ),
 						__( 'Documentation', 'arkcommerce' ),
 						'administrator',
 						'arkcommerce_information',
@@ -371,7 +297,7 @@ function wc_arknpay_custom_settings_url() {
     $url = 'http://'.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
 
     if ($url == admin_url( 'admin.php?page=arknpay_settings' )){
-        header ('location:' . admin_url( 'admin.php?page=wc-settings&tab=checkout&section=ark_gateway' ));
+        header ('location:' . admin_url( 'admin.php?page=wc-settings&tab=arkpay' ));
     }
 }
 
@@ -398,14 +324,14 @@ function arknpay_preferences()
 	// DARK Mode settings
 	if( $arkgatewaysettings['darkmode'] == 'yes' )
 	{
-		$storewalletaddress = $arkgatewaysettings['darkaddress'];
 		$explorerurl = 'https://dexplorer.ark.io/';
 	}
 	else
 	{
-		$storewalletaddress = $arkgatewaysettings['arkaddress'];
 		$explorerurl = 'https://explorer.ark.io/';
-	}
+    }
+    
+    $storewalletaddress = Arkpay_API_Client::getInstance()->get_wallet_address();
 	// Construct an array of possible order expiry timeout options
 	$timeoutoptions = array(	30 => ( __( '30 blocks (unpaid order expires in cca 3 min)', 'arkcommerce' ) ),
                                 55 => ( __( '55 blocks (unpaid order expires in cca 7.5 min)', 'arkcommerce' ) ),
@@ -476,7 +402,9 @@ function arknpay_preferences()
 		$arkchosen = ' disabled';
 		$displayexchangerate = ( '<span class="dashicons dashicons-info" style="color:#4ab6ff;"> </span> <span style="color:black;"><b>' . __( 'ARK is the currently chosen default store currency', 'arkcommerce' ) . '</b>.</span>' );
 	}
-	// Display the form page
+    // Display the form page
+    // get_custom_template_part('template-parts/components/header-block');
+
 	echo( 
 			arkcommerce_headers( 'preferences' ) . '
 			<hr>
@@ -643,7 +571,7 @@ function arknpay_preferences_form()
 	{
 		$arkgatewaysettings['arkexchangetype'] = $_POST["autoexchange"];
 		$formchange = true;
-	}
+    }
 	if( $_POST['display_dual_price'] != $arkgatewaysettings['arkdualprice'] ) 
 	{
 		$arkgatewaysettings['arkdualprice'] = $_POST['display_dual_price'];	
@@ -745,7 +673,7 @@ function arkcommerce_navigator()
 	// Gather and/or set variables
     global $wpdb;
     
-    $api_client = new Arkpay_API_Client();
+    $api_client = Arkpay_API_Client::getInstance();
 	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 	$arkexchangerate = arkcommerce_get_exchange_rate();
 	$store_currency = get_woocommerce_currency();
@@ -756,27 +684,28 @@ function arkcommerce_navigator()
 	// DARK Mode settings
 	if( $arkgatewaysettings['darkmode'] == 'yes' )
 	{
-		$storewalletaddress = $arkgatewaysettings['darkaddress'];
 		$explorerurl = 'https://dexplorer.ark.io/';
 	}
 	else
 	{
-		$storewalletaddress = $arkgatewaysettings['arkaddress'];
 		$explorerurl = 'https://explorer.ark.io/';
-	}
+    }
+    
+    $storewalletaddress = Arkpay_API_Client::getInstance()->get_wallet_address();
 	// Validate block height response
 	if( $arkblockheight != 0 ) $arknodestatus = ( '<span class="dashicons dashicons-info" style="color:lime;"> </span> <b style="color:black;">' . __( 'ArknPay operational', 'arkcommerce' ) . '. ' . __( 'ARK block height', 'arkcommerce' ) . ': ' . $arkblockheight . '</b>' );
 	else $arknodestatus = ( '<span class="dashicons dashicons-info" style="color:red;"> </span> <b style="color:black;">' . __( 'ARK network unresponsive or unreachable', 'arkcommerce' ) . '.</b>' );
 	
 	// Display header
-	echo( arkcommerce_headers ( 'navigator' ) . '<hr>' . $arknodestatus . '<hr><b>' . __( 'ARK wallet address', 'arkcommerce' ) . ' <a class="arkcommerce-link" target="_blank" href="' . $explorerurl . 'address/' . $storewalletaddress . '">' . $storewalletaddress . '</a> ' . __( 'balance', 'arkcommerce' ) . ': Ѧ' . $wallet_balance . '</b><i> (' . __( 'opens in ARK blockchain explorer application', 'arkcommerce' ) . ')</i></div>' );
+	echo( arkcommerce_headers ( 'navigator' ) );
 	
 	// Determine whether the ARK/DARK Node has any hits for the store wallet address query
 	if( !empty( $arktxarray[0] ) ) 
 	{
 		// Form table and iterate rows through the array
 		$table_header_tx = '<p><h3>' . __( 'Latest 10 ARK Transactions', 'arkcommerce' ) . '</h3></p><table class="arkcommerce-table"><b><thead><tr><th>' . __( 'Transaction ID', 'arkcommerce' ) . '</th><th>' . __( 'Sender', 'arkcommerce' ) . '</th><th>' . __( 'Amount', 'arkcommerce' ) . ' (Ѧ)</th><th>SmartBridge</th></thead></b></tr>';
-		foreach( $arktxarray as $arktx ):setup_postdata( $arktx );
+        $content = '';
+        foreach( $arktxarray as $arktx ):setup_postdata( $arktx );
 			$content .= ( '<tr><td><a target="_blank" href="' . $explorerurl . 'tx/' . $arktx["id"] . '">' . $arktx["id"] . '</a></td><td><a target="_blank" href="' . $explorerurl . 'address/' . $arktx["sender"] . '">' . $arktx["sender"] . '</a></td><td>' . number_format( ( float ) $arktx["amount"] / 100000000, 8, '.', '' ) . '</td><td>' . @$arktx["vendorField"] .'</td></tr>' );
 		endforeach;
 		$content .= ( '</table>' );
@@ -797,7 +726,7 @@ function arkcommerce_navigator()
 	if( !empty( $arkorders ) ) 
 	{
 		// Conclude with a table containing information on last 10 ArknPay payment gateway orders
-		$table_header_orders = '<p><h3>' . __( 'Latest 10 ArknPay Orders', 'arkcommerce' ) . '</h3></p><table class="arkcommerce-table"><b><thead><tr><th>' . __( 'Order ID', 'arkcommerce' ) . '</th><th>' . __( 'Order Total (Ѧ)', 'arkcommerce' ) . '</th><th>' . __( 'Order Status', 'arkcommerce' ) . '</th><th>' . __( 'Order Block', 'arkcommerce' ) . '</th><th>' . __( 'Payment Block', 'arkcommerce' ) . '</th><th>' . __( 'Expiry Block', 'arkcommerce' ) . '</th><th>' . __( 'Transaction ID', 'arkcommerce' ) . '</th></thead></b></tr>';
+		$table_header_orders = '<p><h3>' . __( 'Latest 10 Woocommerce Orders (in ARK)', 'arkcommerce' ) . '</h3></p><table class="arkcommerce-table"><b><thead><tr><th>' . __( 'Order ID', 'arkcommerce' ) . '</th><th>' . __( 'Order Total (Ѧ)', 'arkcommerce' ) . '</th><th>' . __( 'Order Status', 'arkcommerce' ) . '</th><th>' . __( 'Order Block', 'arkcommerce' ) . '</th><th>' . __( 'Payment Block', 'arkcommerce' ) . '</th><th>' . __( 'Expiry Block', 'arkcommerce' ) . '</th><th>' . __( 'Transaction ID', 'arkcommerce' ) . '</th></thead></b></tr>';
 		foreach( $arkorders as $arkorder ):setup_postdata( $arkorder );
 			$order = wc_get_order( $arkorder->post_id );
 			$ark_order_data = $order->get_data();
@@ -994,7 +923,7 @@ function arkcommerce_headers( $headertype )
 {
 	// Gather and/or set variables
 	$arkcommerce_link = ( '<a class="arkcommerce-link" target="_blank" href="https://arkcommerce.net/">' . __( 'Website', 'arkcommerce' ) . '</a>' );
-	$gateway_settings_link = sprintf( '<a class="arkcommerce-link" target="_blank" href="%s"> %s</a>', admin_url( 'admin.php?page=wc-settings&tab=checkout&section=ark_gateway' ), __( 'Settings', 'arkcommerce' ) );
+	$gateway_settings_link = sprintf( '<a class="arkcommerce-link" target="_blank" href="%s"> %s</a>', admin_url( 'admin.php?page=wc-settings&tab=arkpay' ), __( 'Settings', 'arkcommerce' ) );
 	$gateway_preferences_link = sprintf( '<a class="arkcommerce-link" target="_blank" href="%s">%s</a>', admin_url( 'admin.php?page=arknpay_preferences' ), __( 'Preferences', 'arkcommerce' ) );
 	$gateway_navigator_link = sprintf( '<a class="arkcommerce-link" target="_blank" href="%s">%s</a>', admin_url( 'admin.php?page=arkcommerce_navigator' ), __( 'Navigator', 'arkcommerce' ) );
 	$gateway_information_link = sprintf( '<a class="arkcommerce-link" target="_blank" href="%s">%s</a>', admin_url( 'admin.php?page=arkcommerce_information' ), __( 'Information', 'arkcommerce' ) );
@@ -1007,18 +936,205 @@ function arkcommerce_headers( $headertype )
 	}
 	elseif( $headertype == 'navigator' )
 	{
-		$header = ( '<div class="wrap"><p><h1>ArknPay ' . __( 'Navigator', 'arkcommerce' ) . '</h1></p><div class="arkcommerce-wrap"><img width="100" height="80" alt="ArknPay" class="arkcommerce-pic-left" src="' . $arkcommerce_logo . '">' . $ark_links . $arkcommerce_link . ' | ' . $gateway_settings_link . ' | ' . $gateway_preferences_link . ' | ' . $gateway_information_link . '">' );
-	}
+        $header = arkpay_header();
+    }
 	elseif( $headertype == 'preferences' )
 	{
-		$header = ( '<div class="wrap"><p><h1>ArknPay ' . __( 'Preferences', 'arkcommerce' ) . '</h1></p><div class="arkcommerce-wrap"><img width="100" height="80" alt="ArknPay" class="arkcommerce-pic-left" src="' . $arkcommerce_logo . '">' . $ark_links . $arkcommerce_link . ' | ' . $gateway_settings_link . ' | ' . $gateway_navigator_link . ' | ' . $gateway_information_link . ' |<img width="80" height="80" alt="QRCODE" class="arkcommerce-pic-right" src="' . plugin_dir_url( __FILE__ ) . '../../assets/images/qrcode.png' . '">' );
-	}
-	elseif( $headertype == 'information' )
-	{
-		$header = ( '<div class="wrap"><p><h1>ArknPay ' . __( 'Information', 'arkcommerce' ) . '</h1></p><div class="arkcommerce-wrap"><img width="100" height="80" alt="ArknPay" class="arkcommerce-pic-left" src="' . $arkcommerce_logo . '">' . $ark_links . $arkcommerce_link . ' | ' . $gateway_settings_link . ' | ' . $gateway_preferences_link . ' | ' . $gateway_navigator_link . '">' );
-	}
+		$header = arkpay_header();// ( '<div class="wrap"><p><h1>Ark Pay ' . __( 'Preferences', 'arkcommerce' ) . '</h1></p><div class="arkcommerce-wrap"><img width="100" height="80" alt="ArknPay" class="arkcommerce-pic-left" src="' . $arkcommerce_logo . '">' . $ark_links . $arkcommerce_link . ' | ' . $gateway_settings_link . ' | ' . $gateway_navigator_link . ' | ' . $gateway_information_link . ' |<img width="80" height="80" alt="QRCODE" class="arkcommerce-pic-right" src="' . plugin_dir_url( __FILE__ ) . '../../assets/images/qrcode.png' . '">' );
+    }
+
 	return $header;
 }
+
+
+
+function arkpay_header() {
+    if (!is_admin()) {
+        return false;
+    }
+
+    $api_client = Arkpay_API_Client::getInstance();
+    $arkblockheight = $api_client->get_block_height();
+    $wallet_balance = $api_client->get_wallet_balance();
+    $wallet_address = $api_client->get_wallet_address();
+    $block_height = $api_client->get_block_height();
+    $exchange_rate = $api_client->get_exchange_rate('ark', get_option('woocommerce_currency'));
+?>
+    <header class="arkpay-header" style="    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /*max-width: 75rem;*/
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    border-radius: 5px;
+    width: 100%; margin: 20px auto;">
+        <a data-v-2bcc9723="" href="/" class="logo-container w-50px md:w-80px h-50px md:h-80px flex-none bg-red text-2xl xl:rounded-l-md flex justify-center items-center router-link-active"
+        
+        
+        style="    height: 85px;
+    width: 85px;
+    justify-content: center;
+    background: #ef182d;
+    display: flex;
+    justify-content: center;
+    align-items: center;">
+            <img style="max-width: 38px; border-radius: 3px;" src="data:image/png;base64,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" class="logo max-w-25px md:max-w-38px"></a>
+
+
+    <div class="arkpay-navigation" style="    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; width: 100%;    box-shadow: #dadada 1px 1px 10px; ">
+        <div class="arkpay-wallet" style="            padding-top: 1.3625rem;
+    padding-left: 25px;
+    padding-bottom: 1.3625rem;
+    padding-right: 25px;">
+            <span style="
+    display: block;
+    color: #20222d;
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 15px;
+">Wallet Address</span>
+
+    <a class="arkcommerce-link" target="_blank" href="https://dexplorer.ark.io/address/<?php echo $wallet_address ?>"><?php echo $wallet_address ?></a>
+
+            
+        </div>
+        <div class="arkpay-balance" style="        padding-top: 1.3625rem;
+    padding-left: 25px;
+    padding-bottom: 1.3625rem;
+    padding-right: 25px;">
+            <span style="
+    display: block;
+    color: #20222d;
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 15px;
+">Balance (ARK)</span>
+            <?php echo $wallet_balance ?>
+        </div>
+
+
+
+        <div class="arkpay-balance" style="        padding-top: 1.3625rem;
+    padding-left: 25px;
+    padding-bottom: 1.3625rem;
+    padding-right: 25px;">
+            <span style="
+    display: block;
+    color: #20222d;
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 15px;
+">Block Height</span>
+            <?php echo $block_height ?>
+        </div>
+
+
+        <div class="arkpay-balance" style="        padding-top: 1.3625rem;
+    padding-left: 25px;
+    padding-bottom: 1.3625rem;
+    padding-right: 25px;">
+            <span style="
+    display: block;
+    color: #20222d;
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 15px;
+">Network</span>
+            <?php if ($block_height !== 0) : ?>
+                <span class="dashicons dashicons-info" style="color:lime;"> </span> 
+            <?php else: ?>
+                <span class="dashicons dashicons-info" style="color:red;"> </span>
+            <?php endif; ?>
+            
+            <?php echo ucfirst($api_client->get_network_environment()) ?>
+        </div>
+
+        <div class="arkpay-balance" style="        padding-top: 1.3625rem;
+    padding-left: 25px;
+    padding-bottom: 1.3625rem;
+    padding-right: 25px;">
+            <span style="
+    display: block;
+    color: #20222d;
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 15px;
+">Exchange Rate </span> <!-- (per ARK) -->
+            <?php echo $exchange_rate ?> <?php echo get_option('woocommerce_currency') ?>
+        </div>
+
+        <div class="arkpay-balance" style="        padding-top: 1.3625rem;
+    padding-left: 25px;
+    padding-bottom: 1.3625rem;
+    padding-right: 25px;">
+            <span style="
+    display: block;
+    color: #20222d;
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 15px;
+">Open Orders</span>
+            <?php echo $block_height ?>
+        </div>
+
+        <div class="arkpay-balance" style="        padding-top: 1.3625rem;
+    padding-left: 25px;
+    padding-bottom: 1.3625rem;
+    padding-right: 25px;">
+            <span style="
+    display: block;
+    color: #20222d;
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 15px;
+">Total Orders</span>
+            <?php echo $block_height ?>
+        </div>
+
+        <div class="arkpay-balance" style="        padding-top: 1.3625rem;
+    padding-left: 25px;
+    padding-bottom: 1.3625rem;
+    padding-right: 25px;">
+            <span style="
+    display: block;
+    color: #20222d;
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 15px;
+">Donate! <i class="dashicons dashicons-heart" style="color:  #ef182d;""></i> </span>
+            <a>Pay me a beer</a>
+        </div>
+
+
+        <div class="arkpay-balance" style="
+    padding-top: .8625rem;
+    padding-left: 5px;
+    padding-bottom: .4625rem;
+    padding-right: 5px;
+    ">
+            <span style="
+    display: block;
+    color: #20222d;
+    font-weight: bold;
+    margin-bottom: 2px;
+    font-size: 15px;
+">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAAASAAAAEgARslrPgAAB5xJREFUeNrt3dGNg0AMRVFqoP8KaSJbQlZKJvazz5XySZaNZw4/CK6XJIV0+QkkAUuSgCUJWJIELEkCliRgSRKwJAlYkoAlScCSJGBJApYkAUuSgCUJWJIELEkCliRgSRKwJAlYkoAlScCSJGBJApYkAUuSgCUJWJIELEnAkiRgSRKwJAFLkoD1r+77fl3XNfbzdhDNj68+v+5tX7/AAhawgAUsYAELWNYvsAwcWMACFrCABSxgAQtYwAKW9QssAwcWsIAFLGABC1jAyhj48zzRC/bjQVnQpb+P9QssAwcWsIAFLGABC1jAAhawgGX9AsvAgQUsYAELWMACFrCABSxgWb/AMnBgAQtYG8DqvmC7b7h0cE7/fesXWAYOLGABC1jAAhawgAUsYAHL+gWWgQMLWMACFrCABSxgAQtYwLJ+gQUsYAELWMAC1ukNu/0BisACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsPqD9fGgizd89++3foFl4MACFrCABSxgAQtYwAIWsKxfYBk4sIAFLGABC1jAAhawgAUs6xdYBg4sYAELWP3P//gg3VjqRarB6xdYwAIWsIAFLGABy/oFloEDC1jAAhawgAUsYAELWMCyfoFl4MACFrCABSxgAQtYv/nBpi94x2cfv339AgtYjgcWsIAFLMcDC1jAsuGBBSxgAcvxwAIWsIDleGABC1g2PLCABSxgOR5YwNKEqjfs6fOf/gBAAQtYwAIWsAQsYAlYAhawBCxgAQtYwBKwgCVgCVjAErCABSxgAavDgq1ekNsfkJe+fqpBT79xGVjAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAELWDPqvuHSwQRib7C2BCxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFrNqBdn9AnBfF9t7w20EFFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAJWBljbX+RZfX7p853+AEQ3lgILWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAQsY9Rtm+u+zPWABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAErAbTuIEwHd/oDGrvvD2ABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYO0Aa/qGnQ4uMHvvD2ABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAApYNAyxgASsDrO4DTQfXhsmejwcgAsuGABawgAUsYAELWMACFrCABSxg2RDAAhawgAUsYAELWMACFrCABSxgAQtYwEoArTsYHjA4+8ZYYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAWtCXoSZDfr0C+oUcIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgNV74Ntv7ATq7gvmlvkAC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAEre+DVIKdfENLPr/t8t5w/sIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawakFKP7/p/1/6BS39xk5gAQtYwAIWsIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGDtAGt62180mv4ARxc8YAELWMACFrCABSxgAUvAAhawgAUsYAELWMACFrCABSwBC1jAAhawgAUsYHXovu/4m/s2v8i0+wP80o/3IlVgAQtYwAIWsIAFHGABC1jAAhawgAUsYAELWMACFnCABSxgAQtYwAIWsIAFLGB9A6zneVr/kO/Ov3zQgy8GHqC3J2ABywdYwAIWsIAFLGABC1jAAhawgOUDLGABC1jAAhawgAUsYAELWMDyARawzoJVvWBPg+UBdbtBnr4+gAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAELWMACFrCABaxvgNX9RZo21GwwUwIWsIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawOp9/9fGnwegOUvX/78ZRYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgJZx/Oljdv7/73+8esIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsIAFLGABC1jAAhawdoDlRZizbwxMB2v6i2qBBSxgAQtYwAIWsIAFLGABC1jAAhawgAUsYAELWMACFrCABSxgAQtYwAIWsICVAZYkAUsSsCQJWJIELEnAkiRgSRKwJAFLkoAlScCSBCxJApYkYEkSsCQJWJKAJUnAkiRgSQKWJAFLkoAlCViSBCxJApYkYEkSsCQJWJKAJUnAkiRgSQKWJAFLkoAlKbw/HqHoWLxQ5/QAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDgtMzFUMjE6MDU6MTIrMDA6MDChpQ1EAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE5LTA4LTMxVDIxOjA1OjEyKzAwOjAw0Pi1+AAAACh0RVh0c3ZnOmJhc2UtdXJpAGZpbGU6Ly8vdG1wL21hZ2ljay1uYXQxNFBhTap5CjsAAAAASUVORK5CYII=" style="
+    width: 60px;
+">
+        </span></div>
+
+
+
+    </div>
+    </header>
+<?php
+}
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
 // ArknPay Footer on All ArknPay Pages											//
 // @output ArknPay Footer															//
@@ -1043,7 +1159,7 @@ if( isset( $_GET["page"] ) && isset( $_GET["section"] ) && $_GET["page"] == "wc-
 function arkcommerce_footer_version()
 {
 	// Form version footer text
-	$arkversion = ( '<small>ArknPay ' . ARKNPAY_VERSION . '</small>' );
+	$arkversion = ( '<small>Ark Pay ' . ARKNPAY_VERSION . '</small>' );
 	
 	// Display version footer
 	echo $arkversion;
