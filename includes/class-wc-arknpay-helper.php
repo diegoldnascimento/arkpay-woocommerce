@@ -42,10 +42,7 @@ function arkcommerce_get_order_timeout()
 	// Gather and/or set variables
 	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 	// Determine order expiry timeout
-    if( $arkgatewaysettings['arktimeout'] == 30 ) $timeout = ( __( '3 min', 'arkcommerce' ) );
-    elseif( $arkgatewaysettings['arktimeout'] == 55 ) $timeout = ( __( '7.5 min', 'arkcommerce' ) );
-    elseif( $arkgatewaysettings['arktimeout'] == 110 ) $timeout = ( __( '15 min', 'arkcommerce' ) );
-	elseif( $arkgatewaysettings['arktimeout'] == 225 ) $timeout = ( __( '30 min', 'arkcommerce' ) );
+	if( $arkgatewaysettings['arktimeout'] == 225 ) $timeout = ( __( '30 min', 'arkcommerce' ) );
 	elseif( $arkgatewaysettings['arktimeout'] == 450 ) $timeout = ( __( '60 min', 'arkcommerce' ) );
 	elseif( $arkgatewaysettings['arktimeout'] == 900 ) $timeout = ( __( '2 hours', 'arkcommerce' ) );
 	elseif( $arkgatewaysettings['arktimeout'] == 1800 ) $timeout = ( __( '4 hours', 'arkcommerce' ) );
@@ -60,33 +57,7 @@ function arkcommerce_get_order_timeout()
 	// Return the result
 	return $timeout;
 }
-//////////////////////////////////////////////////////////////////////////////////////////
-// Periodic Worker Triggering Transaction Validation Jobs on ArknPay Open Orders	//
-//////////////////////////////////////////////////////////////////////////////////////////
-function arkcommerce_validation_worker() 
-{
-	// Gather and/or set variables
-	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
-	global $wpdb;
-	
-	// Construct a query for all WC orders made using ArknPay payment gateway
-	$arkordersquery = ( "SELECT post_id FROM " . $wpdb->postmeta . " WHERE meta_value='ark_gateway';" );
-	
-	// Execute the query
-	$arkorders = $wpdb->get_results( $arkordersquery );
 
-	// Determine valid database connection
-	if( !empty( $arkorders ) ) 
-	{
-		// Iterate through open orders and commence tx check processing for each open order
-		foreach( $arkorders as $arkorder ):setup_postdata( $arkorder );
-			$order = wc_get_order( $arkorder->post_id );
-			if( $order->has_status( 'on-hold' ) ) arkcommerce_ark_transaction_validation( $arkorder->post_id );
-		endforeach;	
-	}
-}
-add_action( 'admin_init', 'arkcommerce_validation_worker' );
-add_action ( 'arkcommerce_check_for_open_orders', 'arkcommerce_validation_worker' );
 
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -111,7 +82,7 @@ function arkcommerce_get_exchange_rate()
     }
     
     if (empty($arkexchangerate)) {
-        $arkexchangerate = Arkpay_API_Client::getInstance()->get_exchange_rate( $currency = 'ark', $base = 'usd' );
+        $arkexchangerate = Arkpay_API_Client::getInstance()->get_exchange_rate();
     }
 	// Return exchange rate
 	return $arkexchangerate;

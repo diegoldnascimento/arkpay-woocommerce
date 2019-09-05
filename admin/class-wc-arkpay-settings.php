@@ -82,16 +82,6 @@ if ( ! class_exists( 'WC_Settings_Arkpay' ) ) :
                         'id'   => 'arkpay_mainnet_wallet',
                         'class' => 'arkpay_mainnet',
 					),
-					/*array(
-						'name' => __( 'Ark Node Address', 'arkpay' ),
-						'type' => 'text',
-						'desc_tip' => __( 'IP address or the hostname of an ARK Mainnet node used to query the blockchain. If port is left out, the plugin uses either 443 for https or 80 for http connections. For directly accessible nodes the default port is 4001 and without https encryption.'),
-                        'id'   => 'arkpay_mainnet_node',
-                        'class' => 'arkpay_mainnet',
-                        // 'default' => 'api.arkpay.io',
-                        'default' => 'api.ark.io',
-                        'style' => 'display: none'
-                    ), */
                     array(
 						'name' => __( 'Ark Wallet Address (Devnet)', 'arkpay' ),
 						'type' => 'text',

@@ -40,6 +40,18 @@ class Arkpay_API_Client {
     private $_peers_devnet_url = 'https://raw.githubusercontent.com/ArkEcosystem/peers/master/devnet.json';
 
     /**
+	 * The Explorer URL for Mainnet
+	 * @var string
+	 */
+    private $_explorer_mainnet_url = 'https://explorer.ark.io';
+
+    /**
+	 * The Explorer URL for Devnet
+	 * @var string
+	 */
+    private $_explorer_devnet_url = 'https://dexplorer.ark.io/';
+
+    /**
 	 * The Peers lists for mainnet and devnet
 	 * @var string
 	 */
@@ -63,7 +75,6 @@ class Arkpay_API_Client {
         $this->set_peers();
         $this->_api_url = $this->build_peer_url( $this->get_peer() );
         $this->_api_url = rtrim($this->_api_url, '/' );
-        
     }
 
     /**
@@ -151,11 +162,40 @@ class Arkpay_API_Client {
         return "{$peer->protocol}://{$peer->ip}:{$peer->port}";
     }
 
+    public function build_transaction_url( $transaction_id ) {
+        $explorer_url = rtrim($this->get_explorer_url(), '/' );
+        
+        return "{$explorer_url}/tx/{$transaction_id}";
+    }
+    
+    /**
+     * Get explorer URL based on environment given
+     * @return string string
+     */
+    public function get_explorer_url() {
+        $explorer_url = null;
+
+        if ($this->is_network_mainnet()) {
+            if (!get_option('arkpay_mainnet_explorer')) {
+                $explorer_url = $this->_explorer_mainnet_url;
+            } else {
+                $explorer_url = get_option('arkpay_mainnet_explorer');
+            }
+        } else {
+            if (!get_option('arkpay_devnet_explorer')) {
+                $explorer_url = $this->_explorer_devnet_url;
+            } else {
+                $explorer_url = get_option('arkpay_devnet_explorer');
+            }
+        }
+
+        return $explorer_url;
+    }
+
     /**
 	 * Get network environment
 	 * @return string string
 	 */
-
     public function get_network_environment() {
         return get_option('arkpay_network_select') !== 'devnet' ? 'mainnet' : 'devnet';
     }
@@ -268,6 +308,27 @@ class Arkpay_API_Client {
         return $transactions; 
     }
 
+    /*
+    * Fetch Specific Transaction	
+    * 
+    * @param string $transaction_id
+    * @return array $transaction
+    */
+    public function get_transaction( $transaction_id ) {
+        $response = $this->_make_api_call("/api/v2/transactions/{$transaction_id}", array(), "GET");
+        $transaction = null;
+
+        if( !is_wp_error($response) )  {
+            $arktxresponse = json_decode( $response['body'], true );
+            if ($arktxresponse['data']) {
+                if( count($arktxresponse['data']) > 0 ) {
+                    $transaction = $arktxresponse['data'];
+                }
+            }
+        }
+
+        return $transaction; 
+    }
     
     /*
     * Get ARK Blockchain Current Block Height
@@ -321,7 +382,7 @@ class Arkpay_API_Client {
 
         if ($response['response']['code'] !== 200) {
             $this->_api_url = $this->build_peer_url( $this->get_peer() );
-            return $this->_make_api_call( $endpoint, $params, $method );
+            // return $this->_make_api_call( $endpoint, $params, $method );
         }
 
         return $response;

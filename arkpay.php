@@ -1,23 +1,4 @@
 <?php
-/**
- *
- * @link              https://arkpay.io
- * @since             1.0.0
- * @package           Arkpay
- *
- * @wordpress-plugin
- * Plugin Name:       Ark Pay Gateway
- * Plugin URI:        https://arkpay.io
- * Description:       Ark Payment Gateway for Bridgechains
- * Version:           1.0.0
- * Author:            Danaric (Diego)
- * Author URI:        https://arkpay.io
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       arkpay
- * Domain Path:       /languages
- */
-
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;

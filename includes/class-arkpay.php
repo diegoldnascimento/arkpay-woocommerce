@@ -78,6 +78,7 @@ class Arkpay {
 		$this->set_locale();
 		$this->define_admin_hooks();
         $this->define_public_hooks();
+        $this->define_include_hooks();
 
 		if ( !$this->arkpay_is_woocommerce_active() ) {
 			add_action( 'admin_notices', array($this,'arkpay_admin_notice__error') );
@@ -118,7 +119,19 @@ class Arkpay {
 		 * The class responsible for defining API calls functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-arkpay-api-client.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-arkpay-api-client.php';
+        
+        /**
+		* The class responsible for defining Woocommerce calls functionality
+		* of the plugin.
+		*/
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-arkpay-woocommerce.php';
+
+        /**
+		* The class responsible for defining Woocommerce cron jobs functionality
+		* of the plugin.
+		*/
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-arkpay-cron-schedules.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
@@ -166,7 +179,7 @@ class Arkpay {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
+        global $arkpay_admin;
 		$arkpay_admin = new Arkpay_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $arkpay_admin, 'enqueue_styles' );
@@ -187,7 +200,24 @@ class Arkpay {
 		$arkpay_public = new Arkpay_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $arkpay_public, 'enqueue_scripts' );
-	}
+    }
+
+    
+    /**
+	 * Create settings tab in Woocommerce settings 
+	 *
+	 * @since    1.0.0
+	 */
+	public function define_include_hooks() {
+        $classes = array(
+            'Arkpay_Woocommerce',
+            'Arkpay_Cron_Schedules'
+        );
+        
+        foreach ($classes as $class) {
+            new $class();
+        }
+    }
 
 	/**
 	 * [arkpay_admin_notice__error description]

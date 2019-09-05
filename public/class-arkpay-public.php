@@ -68,9 +68,5 @@ class Arkpay_Public {
         if ( ! is_checkout() ) return;
 
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/arkpay-public.js', array( 'jquery' ), $this->version, false );
-	}
-
-    /* public function arkpay_get_mainnet_wallet() {
-        return get_option('routeapp_public_token');
-    } */
+    }
 }

@@ -1,3 +1,4 @@
-#wpfooter {
-    /*position: relative !important;*/
+.ark-pay_page_arkpay_dashboard #wpfooter, 
+.ark-pay_page_arknpay_preferences #wpfooter {
+    position: initial !important;
 }

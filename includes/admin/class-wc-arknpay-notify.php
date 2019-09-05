@@ -52,7 +52,7 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 		else $orderorigininfo = ( __( 'Order total originally priced in ARK at', 'arkcommerce' ) . ': Ѧ' . number_format( ( float ) $order->get_meta( $key = 'ark_total' ), 8, '.', '' ) );
 		
 		// Compose mail
-		$mailsubject = ( __( 'ArknPay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Filled', 'arkcommerce' ) );
+		$mailsubject = ( __( 'Ark Pay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Filled', 'arkcommerce' ) );
 		$mailmessagecontent = ( '
 			<!DOCTYPE html>
 			<html>
@@ -62,7 +62,7 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 					<meta http-equiv="Content-Type" content="text/html">
 					<meta name="x-apple-disable-message-reformatting">
 					<title>
-						' . __( 'ArknPay Order Filled' , 'arkcommerce' ) . '
+						' . __( 'Ark Pay Order Filled' , 'arkcommerce' ) . '
 					</title>
 				</head>
 				<body width="100%" bgcolor="#000000" style="margin: 0; mso-line-height-rule: exactly;">
@@ -82,7 +82,7 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 											<tr>
 												<td style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
 													<h1 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 24px; line-height: 27px; color: #333333; font-weight: normal;">
-														' . __( 'ArknPay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Filled', 'arkcommerce' ) . '
+														' . __( 'Ark Pay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Filled', 'arkcommerce' ) . '
 													</h1>
 													<p style="margin: 0;">
 														' . __( 'The order number', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'with order total', 'arkcommerce' ) . ' Ѧ' . number_format( ( float ) $order->get_meta( $key = 'ark_total' ), 8, '.', '' ) . ' ' . __( 'has been paid in full to store wallet address', 'arkcommerce' ) . ' ' . $storewalletaddress . '.
@@ -152,7 +152,7 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 		else $orderexpiry = ( __( 'This order does not expire', 'arkcommerce' ) . '.' );
 		
 		// Compose mail
-		$mailsubject = ( __( 'ArknPay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Placed', 'arkcommerce' ) );
+		$mailsubject = ( __( 'Ark Pay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Placed', 'arkcommerce' ) );
 		$mailmessagecontent = ( '
 			<!DOCTYPE html>
 			<html>
@@ -162,7 +162,7 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 					<meta http-equiv="Content-Type" content="text/html">
 					<meta name="x-apple-disable-message-reformatting">
 					<title>
-						' . __( 'ArknPay Order Placed' , 'arkcommerce' ) . '
+						' . __( 'Ark Pay Order Placed' , 'arkcommerce' ) . '
 					</title>
 				</head>
 				<body width="100%" bgcolor="#000000" style="margin: 0; mso-line-height-rule: exactly;">
@@ -182,7 +182,7 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 											<tr>
 												<td style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
 													<h1 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 24px; line-height: 27px; color: #333333; font-weight: normal;">
-														' . __( 'ArknPay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Placed', 'arkcommerce' ) . '
+														' . __( 'Ark Pay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Placed', 'arkcommerce' ) . '
 													</h1>
 													<p style="margin: 0;">
 														' . __( 'The order number', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'with order total', 'arkcommerce' ) . ' Ѧ' . number_format( ( float ) $order->get_meta( $key = 'ark_total' ), 8, '.', '' ) . ' ' . __( 'has been placed', 'arkcommerce' ) . '.
@@ -244,7 +244,7 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 		else $orderorigininfo = ( __( 'Order total originally priced in ARK at', 'arkcommerce' ) . ': Ѧ' . number_format( ( float ) $order->get_meta( $key = 'ark_total' ), 8, '.', '' ) );
 		
 		// Compose mail
-		$mailsubject = ( __( 'ArknPay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Expired', 'arkcommerce' ) );
+		$mailsubject = ( __( 'Ark Pay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Expired', 'arkcommerce' ) );
 		$mailmessagecontent = ( '
 			<!DOCTYPE html>
 			<html>
@@ -254,7 +254,7 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 					<meta http-equiv="Content-Type" content="text/html">
 					<meta name="x-apple-disable-message-reformatting">
 					<title>
-						' . __( 'ArknPay Order Expired' , 'arkcommerce' ) . '
+						' . __( 'Ark Pay Order Expired' , 'arkcommerce' ) . '
 					</title>
 				</head>
 				<body width="100%" bgcolor="#000000" style="margin: 0; mso-line-height-rule: exactly;">
@@ -274,7 +274,7 @@ function arkcommerce_admin_notification( $order_id, $messagetype )
 											<tr>
 												<td style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
 												<h1 style="margin: 0 0 10px 0; font-family: sans-serif; font-size: 24px; line-height: 27px; color: #333333; font-weight: normal;">
-													' . __( 'ArknPay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Expired', 'arkcommerce' ) . '
+													' . __( 'Ark Pay Order', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'Expired', 'arkcommerce' ) . '
 												</h1>
 												<p style="margin: 0;">
 													' . __( 'The order number', 'arkcommerce' ) . ' ' . $ark_order_data['id'] . ' ' . __( 'with order total', 'arkcommerce' ) . ' Ѧ' . number_format( ( float ) $order->get_meta( $key = 'ark_total' ), 8, '.', '' ) . ' ' . __( 'has expired', 'arkcommerce' ) . '.

@@ -21,24 +21,6 @@
 class Arkpay_Notice {
 
 	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
-	private $plugin_name;
-
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
-	private $version;
-
-	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
@@ -64,7 +46,7 @@ class Arkpay_Notice {
         $api = Arkpay_API_Client::getInstance();
         // Gather and/or set variables
         $arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
-        $currency_supported = arkcommerce_check_currency_support();
+        $currency_supported = true; //arkcommerce_check_currency_support();
         
         $arkprefurl = admin_url( 'admin.php?page=arknpay_preferences' );
         $arkinfourl = admin_url( 'admin.php?page=arkcommerce_information' );

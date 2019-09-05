@@ -194,8 +194,7 @@ function arkcommerce_display_meta_box_widget()
     $arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 
     $api_client = Arkpay_API_Client::getInstance();
-	$wallet_balance = $api_client->get_wallet_balance();
-	$arktxarray = $api_client->get_transactions( 10, $wallet_balance );
+	$arktxarray = $api_client->get_transactions( 10 );
 	// DARK Mode settings
 	if( $arkgatewaysettings['darkmode'] == 'yes' ) 
 	{
@@ -232,8 +231,9 @@ function arkcommerce_add_woocommerce_meta_box()
 	// Gather and/or set variables
 	$arkgatewaysettings = get_option( 'woocommerce_ark_gateway_settings' );
 	
-	// Settings check
-	if( $arkgatewaysettings['arkaddress'] != "" && $arkgatewaysettings['enabled'] == "yes" ) add_meta_box( 'woocommerce-order-my-custom', 'ArknPay Wallet Monitor', 'arkcommerce_display_meta_box_widget', 'shop_order', 'side', 'default' );
+    // Settings check
+    /* Enable After */
+	//if( $arkgatewaysettings['arkaddress'] != "" && $arkgatewaysettings['enabled'] == "yes" ) add_meta_box( 'woocommerce-order-my-custom', 'ArknPay Wallet Monitor', 'arkcommerce_display_meta_box_widget', 'shop_order', 'side', 'default' );
 }
 add_action( 'add_meta_boxes', 'arkcommerce_add_woocommerce_meta_box' );
 
@@ -247,7 +247,7 @@ function arkcommerce_add_menu_pages()
 						'Ark Pay',
 						'administrator',
 						'arkcommerce_root',
-						'arkcommerce_navigator',
+						'arkpay_dashboard',
 						'dashicons-arkcommerce' );
 	
 	// Add Sub menu ArknPay Navigator page
@@ -255,8 +255,8 @@ function arkcommerce_add_menu_pages()
 						__( 'Ark Pay Dashboard', 'arkcommerce' ),
 						__( 'Dashboard', 'arkcommerce' ),
 						'administrator',
-						'arkcommerce_navigator',
-						'arkcommerce_navigator' );
+						'arkpay_dashboard',
+						'arkpay_dashboard' );
 						    
 	// Add Sub menu ArknPay Preferences page
 	add_submenu_page(	'arkcommerce_root',
@@ -333,10 +333,7 @@ function arknpay_preferences()
     
     $storewalletaddress = Arkpay_API_Client::getInstance()->get_wallet_address();
 	// Construct an array of possible order expiry timeout options
-	$timeoutoptions = array(	30 => ( __( '30 blocks (unpaid order expires in cca 3 min)', 'arkcommerce' ) ),
-                                55 => ( __( '55 blocks (unpaid order expires in cca 7.5 min)', 'arkcommerce' ) ),
-                                110 => ( __( '110 blocks (unpaid order expires in cca 15 min)', 'arkcommerce' ) ),
-								225 => ( __( '225 blocks (unpaid order expires in cca 30 min)', 'arkcommerce' ) ),
+	$timeoutoptions = array(	225 => ( __( '225 blocks (unpaid order expires in cca 30 min)', 'arkcommerce' ) ),
 								450 => ( __( '450 blocks (unpaid order expires in cca 60 min)', 'arkcommerce' ) ),
 								900 => ( __( '900 blocks (unpaid order expires in cca 2 hours)', 'arkcommerce' ) ),
 								1800 => ( __( '1800 blocks (unpaid order expires in cca 4 hours)', 'arkcommerce' ) ),
@@ -668,7 +665,7 @@ add_action( 'admin_post_arknpay_preferences_form', 'arknpay_preferences_form' );
 // ArknPay Navigator Page															//
 // @output ArknPay Admin Navigator page												//
 //////////////////////////////////////////////////////////////////////////////////////////
-function arkcommerce_navigator() 
+function arkpay_dashboard() 
 {
 	// Gather and/or set variables
     global $wpdb;
@@ -925,7 +922,7 @@ function arkcommerce_headers( $headertype )
 	$arkcommerce_link = ( '<a class="arkcommerce-link" target="_blank" href="https://arkcommerce.net/">' . __( 'Website', 'arkcommerce' ) . '</a>' );
 	$gateway_settings_link = sprintf( '<a class="arkcommerce-link" target="_blank" href="%s"> %s</a>', admin_url( 'admin.php?page=wc-settings&tab=arkpay' ), __( 'Settings', 'arkcommerce' ) );
 	$gateway_preferences_link = sprintf( '<a class="arkcommerce-link" target="_blank" href="%s">%s</a>', admin_url( 'admin.php?page=arknpay_preferences' ), __( 'Preferences', 'arkcommerce' ) );
-	$gateway_navigator_link = sprintf( '<a class="arkcommerce-link" target="_blank" href="%s">%s</a>', admin_url( 'admin.php?page=arkcommerce_navigator' ), __( 'Navigator', 'arkcommerce' ) );
+	$gateway_navigator_link = sprintf( '<a class="arkcommerce-link" target="_blank" href="%s">%s</a>', admin_url( 'admin.php?page=arkpay_dashboard' ), __( 'Navigator', 'arkcommerce' ) );
 	$gateway_information_link = sprintf( '<a class="arkcommerce-link" target="_blank" href="%s">%s</a>', admin_url( 'admin.php?page=arkcommerce_information' ), __( 'Information', 'arkcommerce' ) );
 	$arkcommerce_logo = ( plugin_dir_url( __FILE__ ) . '../../assets/images/ark-logo.png' );
 	$ark_links = ( '|<b> ARK </b><a class="arkcommerce-link" target="_blank" href="https://ark.io/">' . __( 'Website', 'arkcommerce' ) . '</a> | <a class="arkcommerce-link" target="_blank" href="https://arkecosystem.github.io/ark-lite-wallet/app/">' . __( 'Online Wallet', 'arkcommerce' ) . '</a> | <a class="arkcommerce-link" target="_blank" href="https://github.com/ArkEcosystem/ark-desktop/releases">' . __( 'Desktop Wallet', 'arkcommerce' ) . '</a> | <a class="arkcommerce-link" target="_blank" href="https://github.com/ArkEcosystem/ark-mobile">' . __( 'Mobile Wallet', 'arkcommerce' ) . '</a> | <b>ArknPay </b>' );
@@ -1149,7 +1146,7 @@ function arkcommerce_footer_message()
 }
 if( isset( $_GET["page"] ) && $_GET["page"] == "arkcommerce_information" ) add_filter( 'admin_footer_text', 'arkcommerce_footer_message' );
 if( isset( $_GET["page"] ) && $_GET["page"] == "arknpay_preferences" ) add_filter( 'admin_footer_text', 'arkcommerce_footer_message' );
-if( isset( $_GET["page"] ) && $_GET["page"] == "arkcommerce_navigator" ) add_filter( 'admin_footer_text', 'arkcommerce_footer_message' );
+if( isset( $_GET["page"] ) && $_GET["page"] == "arkpay_dashboard" ) add_filter( 'admin_footer_text', 'arkcommerce_footer_message' );
 if( isset( $_GET["page"] ) && isset( $_GET["section"] ) && $_GET["page"] == "wc-settings" && $_GET["section"] == "ark_gateway" ) add_filter( 'admin_footer_text', 'arkcommerce_footer_message' );
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -1166,7 +1163,7 @@ function arkcommerce_footer_version()
 }
 if( isset( $_GET["page"] ) && $_GET["page"] == "arkcommerce_information" ) add_filter( 'update_footer', 'arkcommerce_footer_version', 11 );
 if( isset( $_GET["page"] ) && $_GET["page"] == "arknpay_preferences" ) add_filter( 'update_footer', 'arkcommerce_footer_version', 11 );
-if( isset( $_GET["page"] ) && $_GET["page"] == "arkcommerce_navigator" ) add_filter( 'update_footer', 'arkcommerce_footer_version', 11 );
+if( isset( $_GET["page"] ) && $_GET["page"] == "arkpay_dashboard" ) add_filter( 'update_footer', 'arkcommerce_footer_version', 11 );
 if( isset( $_GET["page"] ) && isset( $_GET["section"] ) && $_GET["page"] == "wc-settings" && $_GET["section"] == "ark_gateway" ) add_filter( 'update_footer', 'arkcommerce_footer_version', 11 );
 
 //////////////////////////////////////////////////////////////////////////////////////////
