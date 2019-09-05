@@ -1,4 +1,4 @@
-# ArknPay - Woocommerce Gateway plugin
+# Ark Pay - Woocommerce Gateway plugin
 
 > A demo of COPY URL HERE using Woocommerce Gateway plugin working
 
@@ -6,13 +6,13 @@
 
 ## Description
 
-ArknPay is a payment gateway that provides the ability to pay with Ark in Woocommerce. My future implementation will support all Ark's bridgechain.
+Ark Pay is a payment gateway that provides the ability to pay with Ark in Woocommerce. My future implementation will support all Ark's bridgechain.
 
 ## Credits
 
-- [Diego Lopes](https://github.com/danaric)
+- [Diego Lopes](https://github.com/diegoldn)
 - [All Contributors](../../contributors)
 
 ## License
 
-[MIT](LICENSE) © [ArkPay](#)
+[MIT](LICENSE) © [Ark Pay](#)
