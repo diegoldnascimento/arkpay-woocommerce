@@ -69,4 +69,13 @@ class Arkpay_Public {
 
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/arkpay-public.js', array( 'jquery' ), $this->version, false );
     }
+
+    /**
+	 * Register the stylesheets for the admin area.
+	 *
+	 * @since    1.0.0
+	 */
+	public function enqueue_styles() {
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/arkpay-public.css', array(), $this->version, 'all' );
+	}
 }

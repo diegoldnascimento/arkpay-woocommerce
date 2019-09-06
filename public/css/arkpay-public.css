@@ -1,0 +1,20 @@
+.arkpay-order-payment {
+    display: flex;
+}
+
+.arkpay-order-payment .pay-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eb5545;
+    margin-right: 10px;
+    border: 1px solid #d25143;
+    width: 130px;
+    transition: all .7s;
+}
+
+.arkpay-order-payment .pay-button:hover {
+    background: #ca5346;
+    border: 1px solid #ca5346;
+}
+
