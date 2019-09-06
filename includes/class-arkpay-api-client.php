@@ -396,9 +396,11 @@ class Arkpay_API_Client {
 
         $response = wp_remote_request( $url, $args );
 
-        if ($response['response']['code'] !== 200) {
-            $this->_api_url = $this->build_peer_url( $this->get_peer() );
-            // return $this->_make_api_call( $endpoint, $params, $method );
+        if (is_wp_error($response)) {
+            if ($response['response']['code'] !== 200) {
+                $this->_api_url = $this->build_peer_url( $this->get_peer() );
+                return $this->_make_api_call( $endpoint, $params, $method );
+            }
         }
 
         return $response;
