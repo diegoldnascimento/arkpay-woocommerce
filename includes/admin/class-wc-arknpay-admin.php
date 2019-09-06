@@ -678,15 +678,8 @@ function arkpay_dashboard()
 	$wallet_balance = $api_client->get_wallet_balance();
 	$arktxarray = $api_client->get_transactions( 10 );
 	
-	// DARK Mode settings
-	if( $arkgatewaysettings['darkmode'] == 'yes' )
-	{
-		$explorerurl = 'https://dexplorer.ark.io/';
-	}
-	else
-	{
-		$explorerurl = 'https://explorer.ark.io/';
-    }
+
+    $explorerurl = $api_client->get_explorer_url();
     
     $storewalletaddress = Arkpay_API_Client::getInstance()->get_wallet_address();
 	// Validate block height response
@@ -722,6 +715,7 @@ function arkpay_dashboard()
 	// Determine valid database connection
 	if( !empty( $arkorders ) ) 
 	{
+        $ordercontent = null;
 		// Conclude with a table containing information on last 10 ArknPay payment gateway orders
 		$table_header_orders = '<p><h3>' . __( 'Latest 10 Woocommerce Orders (in ARK)', 'arkcommerce' ) . '</h3></p><table class="arkcommerce-table"><b><thead><tr><th>' . __( 'Order ID', 'arkcommerce' ) . '</th><th>' . __( 'Order Total (Ѧ)', 'arkcommerce' ) . '</th><th>' . __( 'Order Status', 'arkcommerce' ) . '</th><th>' . __( 'Order Block', 'arkcommerce' ) . '</th><th>' . __( 'Payment Block', 'arkcommerce' ) . '</th><th>' . __( 'Expiry Block', 'arkcommerce' ) . '</th><th>' . __( 'Transaction ID', 'arkcommerce' ) . '</th></thead></b></tr>';
 		foreach( $arkorders as $arkorder ):setup_postdata( $arkorder );
@@ -994,7 +988,7 @@ function arkpay_header() {
     font-size: 15px;
 ">Wallet Address</span>
 
-    <a class="arkcommerce-link" target="_blank" href="https://dexplorer.ark.io/address/<?php echo $wallet_address ?>"><?php echo $wallet_address ?></a>
+    <a class="arkcommerce-link" target="_blank" href="<?php echo $api_client->build_wallet_url($wallet_address) ?>"><?php echo $wallet_address ?></a>
 
             
         </div>
@@ -1063,7 +1057,7 @@ function arkpay_header() {
             <?php echo $exchange_rate ?> <?php echo get_option('woocommerce_currency') ?>
         </div>
 
-        <div class="arkpay-balance" style="        padding-top: 1.3625rem;
+        <!--<div class="arkpay-balance" style="        padding-top: 1.3625rem;
     padding-left: 25px;
     padding-bottom: 1.3625rem;
     padding-right: 25px;">
@@ -1089,7 +1083,7 @@ function arkpay_header() {
     font-size: 15px;
 ">Total Orders</span>
             <?php echo $block_height ?>
-        </div>
+        </div>-->
 
         <div class="arkpay-balance" style="        padding-top: 1.3625rem;
     padding-left: 25px;
@@ -1102,7 +1096,9 @@ function arkpay_header() {
     margin-bottom: 2px;
     font-size: 15px;
 ">Donate! <i class="dashicons dashicons-heart" style="color:  #ef182d;""></i> </span>
-            <a>Pay me a beer</a>
+            <a href="ark:AaJ79VpfBRPWxigibVx5ikewTXxSW5KnmK?amount=1&vendorField=">Pay me a beer</a>
+
+            
         </div>
 
 
