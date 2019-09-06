@@ -162,10 +162,24 @@ class Arkpay_API_Client {
         return "{$peer->protocol}://{$peer->ip}:{$peer->port}";
     }
 
+    /**
+     * Get transaction url on explorer based on environment given
+     * @return string string
+     */
     public function build_transaction_url( $transaction_id ) {
         $explorer_url = rtrim($this->get_explorer_url(), '/' );
         
         return "{$explorer_url}/tx/{$transaction_id}";
+    }
+
+    /**
+     * Get explorer URL based on environment given
+     * @return string string
+     */
+    public function build_wallet_url( $wallet ) {
+        $explorer_url = rtrim($this->get_explorer_url(), '/' );
+        
+        return "{$explorer_url}/address/{$wallet}";
     }
     
     /**
@@ -267,9 +281,11 @@ class Arkpay_API_Client {
 
         if ( !is_wp_error($response) ) {
             $arkbaresponse = json_decode( $response['body'], true );
-            if ($arkbaresponse['data']) {
-                if ( count($arkbaresponse['data']) > 0 ) {
-                    $balance = number_format( ( float ) $arkbaresponse['data']['balance'] / 100000000, 8, '.', '' );
+            if ($response['response']['code'] !== 404) {
+                if ($arkbaresponse['data']) {
+                    if ( count($arkbaresponse['data']) > 0 ) {
+                        $balance = number_format( ( float ) $arkbaresponse['data']['balance'] / 100000000, 8, '.', '' );
+                    }
                 }
             }
         }
